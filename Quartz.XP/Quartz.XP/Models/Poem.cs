@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Quartz.XP.Model
+namespace Quartz.XP.Models
 {
-    class Poem
+    public class Poem
     {
         public String Title { get; set; }
         public String Author { get; set; }

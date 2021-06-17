@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Quartz.XP.Model
+namespace Quartz.XP.Models
 {
-    class Puzzle
+    public class Puzzle
     {
         public int id { get; set; }
         public Cell[,] Quartz { get; set; }
@@ -19,5 +19,6 @@ namespace Quartz.XP.Model
         public char c1 { get; set; }
         public char c2 { get; set; }
         public char c3 { get; set; }
+        public bool Solved { get; set; }
     }
 }

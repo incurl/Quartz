@@ -56,30 +56,39 @@
     <Reference Include="Telerik.WinControls.GridView, Version=2015.2.728.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.UI, Version=2015.2.728.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="TelerikCommon, Version=2015.2.728.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="ZedGraph, Version=5.1.7.430, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZedGraph.5.1.7\lib\net35-Client\ZedGraph.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Control\Qrid.cs">
+    <Compile Include="Controls\ArrayDataView.cs" />
+    <Compile Include="Controls\ArrayPropertyDescriptor.cs" />
+    <Compile Include="Controls\ArrayRowView.cs" />
+    <Compile Include="Controls\Qrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Control\Qrid.Designer.cs">
+    <Compile Include="Controls\Qrid.Designer.cs">
       <DependentUpon>Qrid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Control\Rack.cs">
+    <Compile Include="Controls\QuartzCellElement.cs" />
+    <Compile Include="Controls\Rack.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Control\Rack.Designer.cs">
+    <Compile Include="Controls\Rack.Designer.cs">
       <DependentUpon>Rack.cs</DependentUpon>
     </Compile>
-    <Compile Include="Control\Slab.cs">
+    <Compile Include="Controls\RowNamePropertyDescriptor.cs" />
+    <Compile Include="Controls\Slab.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Control\Slab.Designer.cs">
+    <Compile Include="Controls\Slab.Designer.cs">
       <DependentUpon>Slab.cs</DependentUpon>
     </Compile>
-    <Compile Include="Control\Tile.cs">
+    <Compile Include="Controls\Tile.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Control\Tile.Designer.cs">
+    <Compile Include="Controls\Tile.Designer.cs">
       <DependentUpon>Tile.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
@@ -88,21 +97,21 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Cell.cs" />
-    <Compile Include="Model\Poem.cs" />
-    <Compile Include="Model\Puzzle.cs" />
+    <Compile Include="Models\Cell.cs" />
+    <Compile Include="Models\Poem.cs" />
+    <Compile Include="Models\Puzzle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Control\Qrid.resx">
+    <EmbeddedResource Include="Controls\Qrid.resx">
       <DependentUpon>Qrid.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Control\Rack.resx">
+    <EmbeddedResource Include="Controls\Rack.resx">
       <DependentUpon>Rack.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Control\Slab.resx">
+    <EmbeddedResource Include="Controls\Slab.resx">
       <DependentUpon>Slab.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Control\Tile.resx">
+    <EmbeddedResource Include="Controls\Tile.resx">
       <DependentUpon>Tile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
@@ -119,6 +128,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="Data\libai.json" />
+    <None Include="Data\Quartz.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -130,7 +142,17 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="License-LGPL.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Accord.3.8.2-alpha\build\Accord.targets" Condition="Exists('..\packages\Accord.3.8.2-alpha\build\Accord.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Accord.3.8.2-alpha\build\Accord.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Accord.3.8.2-alpha\build\Accord.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

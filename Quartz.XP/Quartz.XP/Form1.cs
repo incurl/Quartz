@@ -11,7 +11,7 @@ using System.Security;
 using LiteDB;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Quartz.XP.Model;
+using Quartz.XP.Models;
 using System.Linq.Expressions;
 
 namespace Quartz.XP
@@ -79,13 +79,15 @@ namespace Quartz.XP
                     return array;
                 })
             );
-            using (var db = new LiteDatabase(@"E:\Projects\Visual Studio\Quartz\Quartz.XP\Quartz.XP\Data\Quartz.db"))
+
+            using (var db = new LiteDatabase(@".\Data\Quartz.db"))
             {
                 var col = db.GetCollection<Puzzle>("puzzle");
                 col.EnsureIndex<int>(x => x.id);
-                puzzles = col.FindAll().ToList<Puzzle>();
+                col.EnsureIndex<bool>(x => x.Solved);
+                puzzles = col.Find(x => x.Solved == false).ToList<Puzzle>();
             }
-
+            bindingSource.DataSource = puzzles;
         }
 
         private OpenFileDialog openFileDialog1;
@@ -120,7 +122,15 @@ namespace Quartz.XP
                     col.Insert(p);
                 }
                 col.EnsureIndex<int>(x => x.id);
+                col.EnsureIndex<bool>(x => x.Solved);
             }
+        }
+
+        private void bindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            Puzzle puzzle=(Puzzle)this.bindingSource.Current;
+            this.rack.roulette_tiles(puzzle);
+            this.qrid.SetBoard(puzzle);
         }
     }
 }

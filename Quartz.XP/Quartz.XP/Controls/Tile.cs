@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Quartz.XP.Control
+namespace Quartz.XP.Controls
 {
-    public partial class Qrid : UserControl
+    public partial class Tile : Button
     {
-        public Qrid()
+        public Tile()
         {
             InitializeComponent();
         }

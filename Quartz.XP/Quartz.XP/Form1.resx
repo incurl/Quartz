@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="bindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="radBindingNavigator1MoveFirstItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -148,31 +151,6 @@
         YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAGtJREFUKFONjjEK
         gEAMBO8Qa0Gx9y1+z6/5Cmt7u8RLEQjLFnvdDZlhW4NnZtt+Xo4cmbt3vKH/EVxDxgAyOTgOj5RrlDFp
         4QguVc4oY2pwrvLzfneIjKnBKeWM1WBlarBHEEXG5CBboS77AaJQduV9TRjwAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="radBindingNavigator1SecondStrip.DesiredLocation" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
-        dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJh
-        d2luZy5Qb2ludEYCAAAAAXgBeQAACwsCAAAAAEAcRgAAAAAL
-</value>
-  </data>
-  <data name="radBindingNavigator1AddNewItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAItJREFUOE9jYCAC
-        /P//nxmEiVBKWMm/f/+ykTE2HUB5dsImAVWAXAUyTNSp+z8Ig9jYXAoUd6OqgUBLOPAaCAszXC5ED1Mg
-        nxWngehhhu5lbGGK00CgBCOyAbCww0XDwhSojwmrC9G9SLGBIFvI9DIjVSMFl3cxbCE2HdLNQKyJk5is
-        R7QLYQpJKRwAftlRU9p6GfwAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="radBindingNavigator1DeleteItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABUAAAALCAYAAACQy8Z9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAHRJREFUOE9jZMAC
-        /v//zwgE/0FSCu6tZV9/s3XClL3eV8qIrgWonhmo/i82s+BiIEPxKkCTJEo9SJGoU/d/QpgUixmIspkk
-        E4GKYYbicympZqIYCtIMMhwbTZLByC4dgYbCwgpXWMLEyUolhGIfaKgEtsgCALn+f86V8GTJAAAAAElF
-        TkSuQmCC
 </value>
   </data>
 </root>

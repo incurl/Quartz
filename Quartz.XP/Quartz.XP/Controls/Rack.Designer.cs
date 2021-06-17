@@ -1,4 +1,4 @@
-﻿namespace Quartz.XP.Control
+﻿namespace Quartz.XP.Controls
 {
     partial class Rack
     {
@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.tile1 = new Quartz.XP.Control.Tile();
-            this.tile2 = new Quartz.XP.Control.Tile();
-            this.tile3 = new Quartz.XP.Control.Tile();
-            this.tile4 = new Quartz.XP.Control.Tile();
-            this.tile5 = new Quartz.XP.Control.Tile();
-            this.tile6 = new Quartz.XP.Control.Tile();
-            this.tile7 = new Quartz.XP.Control.Tile();
-            this.tile8 = new Quartz.XP.Control.Tile();
-            this.tile9 = new Quartz.XP.Control.Tile();
+            this.tile1 = new Quartz.XP.Controls.Tile();
+            this.tile2 = new Quartz.XP.Controls.Tile();
+            this.tile3 = new Quartz.XP.Controls.Tile();
+            this.tile4 = new Quartz.XP.Controls.Tile();
+            this.tile5 = new Quartz.XP.Controls.Tile();
+            this.tile6 = new Quartz.XP.Controls.Tile();
+            this.tile7 = new Quartz.XP.Controls.Tile();
+            this.tile8 = new Quartz.XP.Controls.Tile();
+            this.tile9 = new Quartz.XP.Controls.Tile();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +61,7 @@
             // 
             // tile1
             // 
+            this.tile1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tile1.Location = new System.Drawing.Point(123, 3);
             this.tile1.Name = "tile1";
             this.tile1.Size = new System.Drawing.Size(24, 24);
@@ -70,6 +71,7 @@
             // 
             // tile2
             // 
+            this.tile2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tile2.Location = new System.Drawing.Point(153, 3);
             this.tile2.Name = "tile2";
             this.tile2.Size = new System.Drawing.Size(24, 24);
@@ -79,6 +81,7 @@
             // 
             // tile3
             // 
+            this.tile3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tile3.Location = new System.Drawing.Point(183, 3);
             this.tile3.Name = "tile3";
             this.tile3.Size = new System.Drawing.Size(24, 24);
@@ -88,6 +91,7 @@
             // 
             // tile4
             // 
+            this.tile4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tile4.Location = new System.Drawing.Point(213, 3);
             this.tile4.Name = "tile4";
             this.tile4.Size = new System.Drawing.Size(24, 24);
@@ -97,6 +101,7 @@
             // 
             // tile5
             // 
+            this.tile5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tile5.Location = new System.Drawing.Point(243, 3);
             this.tile5.Name = "tile5";
             this.tile5.Size = new System.Drawing.Size(24, 24);
@@ -106,6 +111,7 @@
             // 
             // tile6
             // 
+            this.tile6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tile6.Location = new System.Drawing.Point(273, 3);
             this.tile6.Name = "tile6";
             this.tile6.Size = new System.Drawing.Size(24, 24);
@@ -115,6 +121,7 @@
             // 
             // tile7
             // 
+            this.tile7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tile7.Location = new System.Drawing.Point(303, 3);
             this.tile7.Name = "tile7";
             this.tile7.Size = new System.Drawing.Size(24, 24);
@@ -124,6 +131,7 @@
             // 
             // tile8
             // 
+            this.tile8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tile8.Location = new System.Drawing.Point(333, 3);
             this.tile8.Name = "tile8";
             this.tile8.Size = new System.Drawing.Size(24, 24);
@@ -133,6 +141,7 @@
             // 
             // tile9
             // 
+            this.tile9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tile9.Location = new System.Drawing.Point(363, 3);
             this.tile9.Name = "tile9";
             this.tile9.Size = new System.Drawing.Size(24, 24);

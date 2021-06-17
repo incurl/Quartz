@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Quartz.XP.Model
+namespace Quartz.XP.Models
 {
-    class Cell
+    public class Cell
     {
         public char s { get; set; }
         public int c { get; set; }

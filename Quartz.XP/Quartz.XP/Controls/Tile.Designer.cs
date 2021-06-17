@@ -1,4 +1,4 @@
-﻿namespace Quartz.XP.Control
+﻿namespace Quartz.XP.Controls
 {
     partial class Tile
     {

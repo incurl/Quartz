@@ -1,4 +1,4 @@
-﻿namespace Quartz.XP.Control
+﻿namespace Quartz.XP.Controls
 {
     partial class Slab
     {
@@ -48,26 +48,26 @@
             // 
             // tbTitle
             // 
-            this.tbTitle.Enabled = false;
             this.tbTitle.Location = new System.Drawing.Point(3, 3);
             this.tbTitle.Name = "tbTitle";
+            this.tbTitle.ReadOnly = true;
             this.tbTitle.Size = new System.Drawing.Size(525, 20);
             this.tbTitle.TabIndex = 0;
             // 
             // tbPoet
             // 
-            this.tbPoet.Enabled = false;
             this.tbPoet.Location = new System.Drawing.Point(3, 29);
             this.tbPoet.Name = "tbPoet";
+            this.tbPoet.ReadOnly = true;
             this.tbPoet.Size = new System.Drawing.Size(525, 20);
             this.tbPoet.TabIndex = 1;
             // 
             // tbText
             // 
-            this.tbText.Enabled = false;
             this.tbText.Location = new System.Drawing.Point(3, 55);
             this.tbText.Multiline = true;
             this.tbText.Name = "tbText";
+            this.tbText.ReadOnly = true;
             this.tbText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbText.Size = new System.Drawing.Size(525, 333);
             this.tbText.TabIndex = 2;
