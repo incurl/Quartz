@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LiteDB, Version=3.1.5.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiteDB.3.1.5\lib\net35\LiteDB.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,14 +54,51 @@
     <Reference Include="TelerikCommon, Version=2015.2.728.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\Qrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\Qrid.Designer.cs">
+      <DependentUpon>Qrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Rack.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\Rack.Designer.cs">
+      <DependentUpon>Rack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Slab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\Slab.Designer.cs">
+      <DependentUpon>Slab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Tile.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\Tile.Designer.cs">
+      <DependentUpon>Tile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Puzzle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Control\Qrid.resx">
+      <DependentUpon>Qrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\Rack.resx">
+      <DependentUpon>Rack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\Slab.resx">
+      <DependentUpon>Slab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\Tile.resx">
+      <DependentUpon>Tile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -71,6 +112,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Data\libai.json" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
