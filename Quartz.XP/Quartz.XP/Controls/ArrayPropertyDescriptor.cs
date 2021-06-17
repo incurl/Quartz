@@ -26,7 +26,7 @@
 //   Distributed under the LGPL with permission of the original author.
 //
 
-namespace Quartz.XP.Controls
+namespace Accord.Controls
 {
 
     using System;

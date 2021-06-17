@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Quartz.XP.Models;
 using Telerik.WinControls.UI;
+using Accord.Controls;
 
 namespace Quartz.XP.Controls
 {
