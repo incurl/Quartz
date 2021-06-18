@@ -61,13 +61,14 @@
     <Compile Include="Controls\Accord\ArrayDataView.cs" />
     <Compile Include="Controls\Accord\ArrayPropertyDescriptor.cs" />
     <Compile Include="Controls\Accord\ArrayRowView.cs" />
+    <Compile Include="Controls\Elements\CrystalCellElement.cs" />
     <Compile Include="Controls\Qrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\Qrid.Designer.cs">
       <DependentUpon>Qrid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\QuartzCellElement.cs" />
+    <Compile Include="Controls\Elements\QuartzCellElement.cs" />
     <Compile Include="Controls\Rack.cs">
       <SubType>UserControl</SubType>
     </Compile>

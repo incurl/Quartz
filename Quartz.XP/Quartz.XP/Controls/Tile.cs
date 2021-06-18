@@ -15,5 +15,6 @@ namespace Quartz.XP.Controls
         {
             InitializeComponent();
         }
+
     }
 }

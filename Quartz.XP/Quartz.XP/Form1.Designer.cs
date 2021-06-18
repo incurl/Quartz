@@ -32,15 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.radStatusStrip1 = new Telerik.WinControls.UI.RadStatusStrip();
             this.radMenu1 = new Telerik.WinControls.UI.RadMenu();
-            this.radSplitContainer1 = new Telerik.WinControls.UI.RadSplitContainer();
-            this.splitPanel1 = new Telerik.WinControls.UI.SplitPanel();
-            this.splitPanel2 = new Telerik.WinControls.UI.SplitPanel();
-            this.splitPanel3 = new Telerik.WinControls.UI.SplitPanel();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.object_59b0142b_3fff_4375_9db7_bd498689cf89 = new Telerik.WinControls.RootRadElement();
-            this.radMenuItem1 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem2 = new Telerik.WinControls.UI.RadMenuItem();
-            this.object_dc9d4e8c_31b6_44c6_8869_3be89f660440 = new Telerik.WinControls.UI.RadBindingNavigator.RadBindingNavigatorRootElement();
+            this.radBindingNavigator1 = new Telerik.WinControls.UI.RadBindingNavigator();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.radBindingNavigator1RowElement = new Telerik.WinControls.UI.CommandBarRowElement();
             this.radBindingNavigator1FirstStrip = new Telerik.WinControls.UI.CommandBarStripElement();
@@ -54,28 +46,36 @@
             this.radBindingNavigator1MoveNextItem = new Telerik.WinControls.UI.CommandBarButton();
             this.commandBarSeparator4 = new Telerik.WinControls.UI.CommandBarSeparator();
             this.radBindingNavigator1MoveLastItem = new Telerik.WinControls.UI.CommandBarButton();
-            this.radBindingNavigator1 = new Telerik.WinControls.UI.RadBindingNavigator();
+            this.radMenuItem1 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem2 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radSplitContainer1 = new Telerik.WinControls.UI.RadSplitContainer();
+            this.splitPanel1 = new Telerik.WinControls.UI.SplitPanel();
             this.slabRow = new Quartz.XP.Controls.Slab();
+            this.splitPanel2 = new Telerik.WinControls.UI.SplitPanel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.qrid = new Quartz.XP.Controls.Qrid();
             this.rack = new Quartz.XP.Controls.Rack();
+            this.splitPanel3 = new Telerik.WinControls.UI.SplitPanel();
             this.slabColumn = new Quartz.XP.Controls.Slab();
+            this.object_59b0142b_3fff_4375_9db7_bd498689cf89 = new Telerik.WinControls.RootRadElement();
+            this.object_dc9d4e8c_31b6_44c6_8869_3be89f660440 = new Telerik.WinControls.UI.RadBindingNavigator.RadBindingNavigatorRootElement();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).BeginInit();
             this.radMenu1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radBindingNavigator1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radSplitContainer1)).BeginInit();
             this.radSplitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitPanel1)).BeginInit();
             this.splitPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitPanel2)).BeginInit();
             this.splitPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitPanel3)).BeginInit();
-            this.splitPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radBindingNavigator1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitPanel3)).BeginInit();
+            this.splitPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // radStatusStrip1
@@ -97,109 +97,17 @@
             this.radMenu1.TabIndex = 2;
             this.radMenu1.Text = "radMenu1";
             // 
-            // radSplitContainer1
+            // radBindingNavigator1
             // 
-            this.radSplitContainer1.Controls.Add(this.splitPanel1);
-            this.radSplitContainer1.Controls.Add(this.splitPanel2);
-            this.radSplitContainer1.Controls.Add(this.splitPanel3);
-            this.radSplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radSplitContainer1.Location = new System.Drawing.Point(0, 20);
-            this.radSplitContainer1.Name = "radSplitContainer1";
-            // 
-            // 
-            // 
-            this.radSplitContainer1.RootElement.MinSize = new System.Drawing.Size(0, 0);
-            this.radSplitContainer1.Size = new System.Drawing.Size(1592, 399);
-            this.radSplitContainer1.TabIndex = 3;
-            this.radSplitContainer1.TabStop = false;
-            this.radSplitContainer1.Text = "radSplitContainer1";
-            // 
-            // splitPanel1
-            // 
-            this.splitPanel1.Controls.Add(this.slabRow);
-            this.splitPanel1.Location = new System.Drawing.Point(0, 0);
-            this.splitPanel1.Name = "splitPanel1";
-            // 
-            // 
-            // 
-            this.splitPanel1.RootElement.MinSize = new System.Drawing.Size(0, 0);
-            this.splitPanel1.Size = new System.Drawing.Size(528, 399);
-            this.splitPanel1.TabIndex = 0;
-            this.splitPanel1.TabStop = false;
-            this.splitPanel1.Text = "splitPanel1";
-            // 
-            // splitPanel2
-            // 
-            this.splitPanel2.Controls.Add(this.splitContainer1);
-            this.splitPanel2.Location = new System.Drawing.Point(532, 0);
-            this.splitPanel2.Name = "splitPanel2";
-            // 
-            // 
-            // 
-            this.splitPanel2.RootElement.MinSize = new System.Drawing.Size(0, 0);
-            this.splitPanel2.Size = new System.Drawing.Size(528, 399);
-            this.splitPanel2.TabIndex = 1;
-            this.splitPanel2.TabStop = false;
-            this.splitPanel2.Text = "splitPanel2";
-            // 
-            // splitPanel3
-            // 
-            this.splitPanel3.Controls.Add(this.slabColumn);
-            this.splitPanel3.Location = new System.Drawing.Point(1064, 0);
-            this.splitPanel3.Name = "splitPanel3";
-            // 
-            // 
-            // 
-            this.splitPanel3.RootElement.MinSize = new System.Drawing.Size(0, 0);
-            this.splitPanel3.Size = new System.Drawing.Size(528, 399);
-            this.splitPanel3.TabIndex = 2;
-            this.splitPanel3.TabStop = false;
-            this.splitPanel3.Text = "splitPanel3";
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.qrid);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.rack);
-            this.splitContainer1.Size = new System.Drawing.Size(528, 399);
-            this.splitContainer1.SplitterDistance = 364;
-            this.splitContainer1.TabIndex = 0;
-            // 
-            // object_59b0142b_3fff_4375_9db7_bd498689cf89
-            // 
-            this.object_59b0142b_3fff_4375_9db7_bd498689cf89.Name = "object_59b0142b_3fff_4375_9db7_bd498689cf89";
-            this.object_59b0142b_3fff_4375_9db7_bd498689cf89.StretchHorizontally = true;
-            this.object_59b0142b_3fff_4375_9db7_bd498689cf89.StretchVertically = true;
-            // 
-            // radMenuItem1
-            // 
-            this.radMenuItem1.AccessibleDescription = "&Tools";
-            this.radMenuItem1.AccessibleName = "&Tools";
-            this.radMenuItem1.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radMenuItem2});
-            this.radMenuItem1.Name = "radMenuItem1";
-            this.radMenuItem1.Text = "&Tools";
-            // 
-            // radMenuItem2
-            // 
-            this.radMenuItem2.AccessibleDescription = "&Load";
-            this.radMenuItem2.AccessibleName = "&Load";
-            this.radMenuItem2.Name = "radMenuItem2";
-            this.radMenuItem2.Text = "&Load";
-            this.radMenuItem2.Click += new System.EventHandler(this.radMenuItem2_Click);
-            // 
-            // object_dc9d4e8c_31b6_44c6_8869_3be89f660440
-            // 
-            this.object_dc9d4e8c_31b6_44c6_8869_3be89f660440.Name = "object_dc9d4e8c_31b6_44c6_8869_3be89f660440";
+            this.radBindingNavigator1.BindingSource = this.bindingSource;
+            this.radBindingNavigator1.Dock = System.Windows.Forms.DockStyle.None;
+            this.radBindingNavigator1.Location = new System.Drawing.Point(626, 0);
+            this.radBindingNavigator1.Name = "radBindingNavigator1";
+            this.radBindingNavigator1.Rows.AddRange(new Telerik.WinControls.UI.CommandBarRowElement[] {
+            this.radBindingNavigator1RowElement});
+            this.radBindingNavigator1.Size = new System.Drawing.Size(238, 30);
+            this.radBindingNavigator1.TabIndex = 0;
+            this.radBindingNavigator1.Text = "radBindingNavigator1";
             // 
             // bindingSource
             // 
@@ -246,8 +154,6 @@
             // 
             // radBindingNavigator1MoveFirstItem
             // 
-            this.radBindingNavigator1MoveFirstItem.AccessibleDescription = null;
-            this.radBindingNavigator1MoveFirstItem.AccessibleName = null;
             this.radBindingNavigator1MoveFirstItem.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.radBindingNavigator1MoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("radBindingNavigator1MoveFirstItem.Image")));
             this.radBindingNavigator1MoveFirstItem.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
@@ -263,8 +169,6 @@
             // 
             // radBindingNavigator1MovePreviousItem
             // 
-            this.radBindingNavigator1MovePreviousItem.AccessibleDescription = null;
-            this.radBindingNavigator1MovePreviousItem.AccessibleName = null;
             this.radBindingNavigator1MovePreviousItem.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.radBindingNavigator1MovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("radBindingNavigator1MovePreviousItem.Image")));
             this.radBindingNavigator1MovePreviousItem.Name = "radBindingNavigator1MovePreviousItem";
@@ -304,8 +208,6 @@
             // 
             // radBindingNavigator1MoveNextItem
             // 
-            this.radBindingNavigator1MoveNextItem.AccessibleDescription = null;
-            this.radBindingNavigator1MoveNextItem.AccessibleName = null;
             this.radBindingNavigator1MoveNextItem.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.radBindingNavigator1MoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("radBindingNavigator1MoveNextItem.Image")));
             this.radBindingNavigator1MoveNextItem.Name = "radBindingNavigator1MoveNextItem";
@@ -320,24 +222,58 @@
             // 
             // radBindingNavigator1MoveLastItem
             // 
-            this.radBindingNavigator1MoveLastItem.AccessibleDescription = null;
-            this.radBindingNavigator1MoveLastItem.AccessibleName = null;
             this.radBindingNavigator1MoveLastItem.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.radBindingNavigator1MoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("radBindingNavigator1MoveLastItem.Image")));
             this.radBindingNavigator1MoveLastItem.Name = "radBindingNavigator1MoveLastItem";
             this.radBindingNavigator1MoveLastItem.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             // 
-            // radBindingNavigator1
+            // radMenuItem1
             // 
-            this.radBindingNavigator1.BindingSource = this.bindingSource;
-            this.radBindingNavigator1.Dock = System.Windows.Forms.DockStyle.None;
-            this.radBindingNavigator1.Location = new System.Drawing.Point(626, 0);
-            this.radBindingNavigator1.Name = "radBindingNavigator1";
-            this.radBindingNavigator1.Rows.AddRange(new Telerik.WinControls.UI.CommandBarRowElement[] {
-            this.radBindingNavigator1RowElement});
-            this.radBindingNavigator1.Size = new System.Drawing.Size(238, 30);
-            this.radBindingNavigator1.TabIndex = 0;
-            this.radBindingNavigator1.Text = "radBindingNavigator1";
+            this.radMenuItem1.AccessibleDescription = "&Tools";
+            this.radMenuItem1.AccessibleName = "&Tools";
+            this.radMenuItem1.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radMenuItem2});
+            this.radMenuItem1.Name = "radMenuItem1";
+            this.radMenuItem1.Text = "&Tools";
+            // 
+            // radMenuItem2
+            // 
+            this.radMenuItem2.AccessibleDescription = "&Load";
+            this.radMenuItem2.AccessibleName = "&Load";
+            this.radMenuItem2.Name = "radMenuItem2";
+            this.radMenuItem2.Text = "&Load";
+            this.radMenuItem2.Click += new System.EventHandler(this.radMenuItem2_Click);
+            // 
+            // radSplitContainer1
+            // 
+            this.radSplitContainer1.Controls.Add(this.splitPanel1);
+            this.radSplitContainer1.Controls.Add(this.splitPanel2);
+            this.radSplitContainer1.Controls.Add(this.splitPanel3);
+            this.radSplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radSplitContainer1.Location = new System.Drawing.Point(0, 20);
+            this.radSplitContainer1.Name = "radSplitContainer1";
+            // 
+            // 
+            // 
+            this.radSplitContainer1.RootElement.MinSize = new System.Drawing.Size(0, 0);
+            this.radSplitContainer1.Size = new System.Drawing.Size(1592, 399);
+            this.radSplitContainer1.TabIndex = 3;
+            this.radSplitContainer1.TabStop = false;
+            this.radSplitContainer1.Text = "radSplitContainer1";
+            // 
+            // splitPanel1
+            // 
+            this.splitPanel1.Controls.Add(this.slabRow);
+            this.splitPanel1.Location = new System.Drawing.Point(0, 0);
+            this.splitPanel1.Name = "splitPanel1";
+            // 
+            // 
+            // 
+            this.splitPanel1.RootElement.MinSize = new System.Drawing.Size(0, 0);
+            this.splitPanel1.Size = new System.Drawing.Size(528, 399);
+            this.splitPanel1.TabIndex = 0;
+            this.splitPanel1.TabStop = false;
+            this.splitPanel1.Text = "splitPanel1";
             // 
             // slabRow
             // 
@@ -345,6 +281,38 @@
             this.slabRow.Name = "slabRow";
             this.slabRow.Size = new System.Drawing.Size(528, 394);
             this.slabRow.TabIndex = 0;
+            // 
+            // splitPanel2
+            // 
+            this.splitPanel2.Controls.Add(this.splitContainer1);
+            this.splitPanel2.Location = new System.Drawing.Point(532, 0);
+            this.splitPanel2.Name = "splitPanel2";
+            // 
+            // 
+            // 
+            this.splitPanel2.RootElement.MinSize = new System.Drawing.Size(0, 0);
+            this.splitPanel2.Size = new System.Drawing.Size(528, 399);
+            this.splitPanel2.TabIndex = 1;
+            this.splitPanel2.TabStop = false;
+            this.splitPanel2.Text = "splitPanel2";
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.qrid);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.rack);
+            this.splitContainer1.Size = new System.Drawing.Size(528, 399);
+            this.splitContainer1.SplitterDistance = 363;
+            this.splitContainer1.TabIndex = 0;
             // 
             // qrid
             // 
@@ -360,12 +328,36 @@
             this.rack.Size = new System.Drawing.Size(528, 31);
             this.rack.TabIndex = 0;
             // 
+            // splitPanel3
+            // 
+            this.splitPanel3.Controls.Add(this.slabColumn);
+            this.splitPanel3.Location = new System.Drawing.Point(1064, 0);
+            this.splitPanel3.Name = "splitPanel3";
+            // 
+            // 
+            // 
+            this.splitPanel3.RootElement.MinSize = new System.Drawing.Size(0, 0);
+            this.splitPanel3.Size = new System.Drawing.Size(528, 399);
+            this.splitPanel3.TabIndex = 2;
+            this.splitPanel3.TabStop = false;
+            this.splitPanel3.Text = "splitPanel3";
+            // 
             // slabColumn
             // 
             this.slabColumn.Location = new System.Drawing.Point(5, 0);
             this.slabColumn.Name = "slabColumn";
             this.slabColumn.Size = new System.Drawing.Size(528, 394);
             this.slabColumn.TabIndex = 0;
+            // 
+            // object_59b0142b_3fff_4375_9db7_bd498689cf89
+            // 
+            this.object_59b0142b_3fff_4375_9db7_bd498689cf89.Name = "object_59b0142b_3fff_4375_9db7_bd498689cf89";
+            this.object_59b0142b_3fff_4375_9db7_bd498689cf89.StretchHorizontally = true;
+            this.object_59b0142b_3fff_4375_9db7_bd498689cf89.StretchVertically = true;
+            // 
+            // object_dc9d4e8c_31b6_44c6_8869_3be89f660440
+            // 
+            this.object_dc9d4e8c_31b6_44c6_8869_3be89f660440.Name = "object_dc9d4e8c_31b6_44c6_8869_3be89f660440";
             // 
             // Form1
             // 
@@ -381,20 +373,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).EndInit();
             this.radMenu1.ResumeLayout(false);
             this.radMenu1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radBindingNavigator1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radSplitContainer1)).EndInit();
             this.radSplitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitPanel1)).EndInit();
             this.splitPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitPanel2)).EndInit();
             this.splitPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitPanel3)).EndInit();
-            this.splitPanel3.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radBindingNavigator1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitPanel3)).EndInit();
+            this.splitPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

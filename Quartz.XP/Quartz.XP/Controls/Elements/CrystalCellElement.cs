@@ -5,11 +5,11 @@ using System.Text;
 using Telerik.WinControls.UI;
 using Quartz.XP.Models;
 
-namespace Quartz.XP.Controls
+namespace Quartz.XP.Controls.Elements
 {
-    class QuartzCellElement : GridDataCellElement
+    class CrystalCellElement: GridDataCellElement
     {
-        public QuartzCellElement(GridViewColumn column, GridRowElement row) : base(column, row)
+        public CrystalCellElement(GridViewColumn column, GridRowElement row) : base(column, row)
         {
 
         }
@@ -28,7 +28,7 @@ namespace Quartz.XP.Controls
         {
             if (this.Value != null && this.Value != DBNull.Value)
             {
-                this.lightVisualElement.Text = ((Cell)this.Value).s;
+                this.lightVisualElement.Text = "";
             }
         }
 

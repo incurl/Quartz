@@ -15,8 +15,21 @@ namespace Quartz.XP.Controls
         public Rack()
         {
             InitializeComponent();
+            InitializeTiles();
         }
 
+        public String Candidate { get; set; }
+        private Tile[] tiles;
+
+        private void InitializeTiles()
+        {
+            tiles=new Tile[]{this.tile1, this.tile2, this.tile3, this.tile4, this.tile5, this.tile6, this.tile7, this.tile8, this.tile9};
+            foreach(Tile tile in tiles)
+            {
+                tile.Click += new System.EventHandler(this.tile_Click);
+            }
+
+        }
         public void roulette_tiles(Puzzle puzzle)
         {
             Random rnd = new Random();
@@ -31,6 +44,31 @@ namespace Quartz.XP.Controls
             this.tile7.Text = shuffled[6];
             this.tile8.Text = shuffled[7];
             this.tile9.Text = shuffled[8];
+            
         }
+
+        private void tile_Click(object sender, EventArgs e)
+        {
+            Tile tile=(Tile)sender;
+            if (tile.Enabled)
+            {
+                tile.Enabled = false;
+                this.Candidate = tile.Text;
+                foreach (Tile t in tiles)
+                {
+                    if (t != tile)
+                    {
+                        t.Enabled = true;
+                    }
+                }
+            }
+            else
+            {
+                tile.Enabled = true;
+                this.Candidate = null;
+            }
+
+        }
+
     }
 }

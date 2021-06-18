@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Quartz.XP.Models;
 using Telerik.WinControls.UI;
 using Accord.Controls;
+using Quartz.XP.Controls.Elements;
 
 namespace Quartz.XP.Controls
 {
@@ -58,7 +59,7 @@ namespace Quartz.XP.Controls
         {
             if (crystal.Contains(e.CellElement.ColumnIndex) && crystal.Contains(e.CellElement.RowIndex))
             {
-                e.CellElement.BackColor = Color.Red;
+                e.CellElement.BackColor = Color.Aqua;
                 e.CellElement.AllowDrop = true;
                 e.CellElement.AllowDrag = true;
             }
@@ -76,7 +77,15 @@ namespace Quartz.XP.Controls
 
         private void grid_CreateCell(object sender, GridViewCreateCellEventArgs e)
         {
-            e.CellElement = new QuartzCellElement(e.Column, e.Row);
+            if (crystal.Contains(e.Column.Index) && crystal.Contains(e.Row.RowInfo.Index))
+            {
+                e.CellElement = new CrystalCellElement(e.Column, e.Row);
+                
+            }
+            else
+            {
+                e.CellElement = new QuartzCellElement(e.Column, e.Row);
+            }
         }
     }
 }
