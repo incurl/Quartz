@@ -45,7 +45,7 @@ namespace Quartz.XP
                         {
                             Cell cell = array[i, j];
                             BsonDocument d = new BsonDocument();
-                            d["s"] = cell.s.ToString();
+                            d["s"] = cell.s;
                             d["c"] = cell.c;
                             d["r"] = cell.r;
                             arr.Add(d);
@@ -69,7 +69,7 @@ namespace Quartz.XP
                         foreach (BsonValue v in arr)
                         {
                             BsonDocument d = v.AsDocument;
-                            Cell c = new Cell { c = d["c"].AsInt32, r = d["r"].AsInt32, s = d["s"].AsString.ToCharArray()[0] };
+                            Cell c = new Cell { c = d["c"].AsInt32, r = d["r"].AsInt32, s = d["s"] };
                             array[i, j] = c;
                             j++;
                         }

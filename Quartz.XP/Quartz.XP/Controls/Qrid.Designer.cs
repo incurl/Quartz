@@ -35,16 +35,24 @@
             // 
             // grid
             // 
+            this.grid.AllowDrop = true;
             this.grid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid.Location = new System.Drawing.Point(0, 0);
             // 
             // 
             // 
             this.grid.MasterTemplate.AllowAddNewRow = false;
+            this.grid.MasterTemplate.AllowColumnChooser = false;
+            this.grid.MasterTemplate.AllowColumnHeaderContextMenu = false;
             this.grid.MasterTemplate.AllowColumnReorder = false;
             this.grid.MasterTemplate.AllowColumnResize = false;
             this.grid.MasterTemplate.AllowDeleteRow = false;
+            this.grid.MasterTemplate.AllowDragToGroup = false;
+            this.grid.MasterTemplate.EnableGrouping = false;
+            this.grid.MasterTemplate.EnableSorting = false;
+            this.grid.MasterTemplate.SelectionMode = Telerik.WinControls.UI.GridViewSelectionMode.CellSelect;
             this.grid.MasterTemplate.ShowColumnHeaders = false;
+            this.grid.MasterTemplate.ShowFilteringRow = false;
             this.grid.MasterTemplate.ShowRowHeaderColumn = false;
             this.grid.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.grid.Name = "grid";
@@ -53,9 +61,13 @@
             // 
             this.grid.RootElement.AutoSize = true;
             this.grid.ShowGroupPanel = false;
+            this.grid.ShowGroupPanelScrollbars = false;
             this.grid.Size = new System.Drawing.Size(528, 359);
             this.grid.TabIndex = 1;
             this.grid.Text = "radGridView1";
+            this.grid.CreateCell += new Telerik.WinControls.UI.GridViewCreateCellEventHandler(this.grid_CreateCell);
+            this.grid.RowFormatting += new Telerik.WinControls.UI.RowFormattingEventHandler(this.grid_RowFormatting);
+            this.grid.CellFormatting += new Telerik.WinControls.UI.CellFormattingEventHandler(this.grid_CellFormatting);
             // 
             // Qrid
             // 

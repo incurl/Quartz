@@ -56,15 +56,11 @@
     <Reference Include="Telerik.WinControls.GridView, Version=2015.2.728.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.UI, Version=2015.2.728.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="TelerikCommon, Version=2015.2.728.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
-    <Reference Include="ZedGraph, Version=5.1.7.430, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
-      <HintPath>..\packages\ZedGraph.5.1.7\lib\net35-Client\ZedGraph.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\ArrayDataView.cs" />
-    <Compile Include="Controls\ArrayPropertyDescriptor.cs" />
-    <Compile Include="Controls\ArrayRowView.cs" />
+    <Compile Include="Controls\Accord\ArrayDataView.cs" />
+    <Compile Include="Controls\Accord\ArrayPropertyDescriptor.cs" />
+    <Compile Include="Controls\Accord\ArrayRowView.cs" />
     <Compile Include="Controls\Qrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -78,7 +74,7 @@
     <Compile Include="Controls\Rack.Designer.cs">
       <DependentUpon>Rack.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\RowNamePropertyDescriptor.cs" />
+    <Compile Include="Controls\Accord\RowNamePropertyDescriptor.cs" />
     <Compile Include="Controls\Slab.cs">
       <SubType>UserControl</SubType>
     </Compile>

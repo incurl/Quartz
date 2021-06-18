@@ -7,7 +7,7 @@ namespace Quartz.XP.Models
 {
     public class Cell
     {
-        public char s { get; set; }
+        public String s { get; set; }
         public int c { get; set; }
         public int r { get; set; }
     }
