@@ -31,10 +31,10 @@ namespace Quartz.XP.Controls
 
         private HashSet<int> crystal = new HashSet<int>();
         private Puzzle puzzle;
-        public event EventHandler ColumnBingo;
-        public event EventHandler RowBingo;
-        public event EventHandler ColumnMiss;
-        public event EventHandler RowMiss;
+        public event EventHandler<GridViewCellEventArgs> ColumnBingo;
+        public event EventHandler<GridViewCellEventArgs> RowBingo;
+        public event EventHandler<GridViewCellEventArgs> ColumnMiss;
+        public event EventHandler<GridViewCellEventArgs> RowMiss;
 
         public void SetBoard(Puzzle p)
         {
@@ -95,5 +95,99 @@ namespace Quartz.XP.Controls
                 e.CellElement = new QuartzCellElement(e.Column, e.Row);
             }
         }
+
+        public void PlaceTile(Tile tile)
+        {
+
+        }
+
+        private void grid_CellClick(object sender, GridViewCellEventArgs e)
+        {
+            int r=e.RowIndex;
+            int c=e.ColumnIndex;
+            bool columnBingo=true;
+            bool rowBingo = true;
+            for(int i=4;i<7;i++)
+            {
+                if(((Cell)grid.Rows[r].Cells[i].Value).guess!=((Cell)grid.Rows[r].Cells[i].Value).s)
+                {
+                    columnBingo=false;
+                }
+                if(((Cell)grid.Rows[i].Cells[c].Value).guess!=((Cell)grid.Rows[r].Cells[i].Value).s)
+                {
+                    rowBingo = false;
+                }
+            }
+            if (columnBingo)
+            {
+                OnColumnBingo(e);
+            }
+            else
+            {
+                OnColumnMiss(e);
+            }
+            if (columnBingo)
+            {
+                OnRowBingo(e);
+            }
+            else
+            {
+                OnRowMiss(e);
+            }
+                
+            if (crystal.Contains(e.ColumnIndex) && crystal.Contains(e.RowIndex))
+            {
+                if (((Cell)e.Value).guess == null)
+                {
+                }
+                else
+                {
+                }
+
+            }
+            else
+            {
+                if (e.Value != null)
+                {
+                }
+            }
+        }
+
+        protected virtual void OnColumnBingo(GridViewCellEventArgs e)
+        {
+            EventHandler<GridViewCellEventArgs> handler = ColumnBingo;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        protected virtual void OnRowBingo(GridViewCellEventArgs e)
+        {
+            EventHandler<GridViewCellEventArgs> handler = RowBingo;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        protected virtual void OnColumnMiss(GridViewCellEventArgs e)
+        {
+            EventHandler<GridViewCellEventArgs> handler = ColumnMiss;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        protected virtual void OnRowMiss(GridViewCellEventArgs e)
+        {
+            EventHandler<GridViewCellEventArgs> handler = RowMiss;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
     }
 }

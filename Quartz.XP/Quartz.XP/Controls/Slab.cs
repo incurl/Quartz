@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Quartz.XP.Models;
+using Telerik.WinControls.UI;
 
 namespace Quartz.XP.Controls
 {
@@ -24,22 +25,22 @@ namespace Quartz.XP.Controls
             this.tbPoet.Text=poem.Author;
         }
 
-        public void qrid_ColumnBingo(object sender, EventArgs e)
+        public void qrid_ColumnBingo(object sender, GridViewCellEventArgs e)
         {
         }
 
-        public void qrid_RowBingo(object sender, EventArgs e)
+        public void qrid_RowBingo(object sender, GridViewCellEventArgs e)
         {
         }
 
-        public void qrid_ColumnMiss(object sender, EventArgs e)
+        public void qrid_ColumnMiss(object sender, GridViewCellEventArgs e)
         {
             this.tbPoet.Text = "";
             this.tbText.Text = "";
             this.tbTitle.Text = "";
         }
 
-        public void qrid_RowMiss(object sender, EventArgs e)
+        public void qrid_RowMiss(object sender, GridViewCellEventArgs e)
         {
             this.tbPoet.Text = "";
             this.tbText.Text = "";

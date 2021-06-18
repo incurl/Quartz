@@ -68,6 +68,7 @@
             this.grid.CreateCell += new Telerik.WinControls.UI.GridViewCreateCellEventHandler(this.grid_CreateCell);
             this.grid.RowFormatting += new Telerik.WinControls.UI.RowFormattingEventHandler(this.grid_RowFormatting);
             this.grid.CellFormatting += new Telerik.WinControls.UI.CellFormattingEventHandler(this.grid_CellFormatting);
+            this.grid.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.grid_CellClick);
             // 
             // Qrid
             // 

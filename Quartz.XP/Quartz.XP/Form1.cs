@@ -23,6 +23,15 @@ namespace Quartz.XP
             InitializeComponent();
             openFileDialog1 = new OpenFileDialog();
             InitializeDb();
+            WireUp();
+        }
+
+        private void WireUp()
+        {
+            this.qrid.ColumnBingo += this.slabColumn.qrid_ColumnBingo;
+            this.qrid.ColumnMiss += this.slabColumn.qrid_ColumnMiss;
+            this.qrid.RowBingo += this.slabColumn.qrid_RowBingo;
+            this.qrid.RowMiss += this.slabColumn.qrid_RowMiss;
         }
 
         private void InitializeDb()
@@ -131,10 +140,6 @@ namespace Quartz.XP
             Puzzle puzzle=(Puzzle)this.bindingSource.Current;
             this.rack.roulette_tiles(puzzle);
             this.qrid.SetBoard(puzzle);
-            this.qrid.ColumnBingo += new EventHandler(this.slabColumn.qrid_ColumnBingo);
-            this.qrid.ColumnMiss += new EventHandler(this.slabColumn.qrid_ColumnMiss);
-            this.qrid.RowBingo += new EventHandler(this.slabColumn.qrid_RowBingo);
-            this.qrid.RowMiss += new EventHandler(this.slabColumn.qrid_RowMiss);
         }
     }
 }
