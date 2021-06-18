@@ -23,5 +23,28 @@ namespace Quartz.XP.Controls
             this.tbText.Text=poem.Text;
             this.tbPoet.Text=poem.Author;
         }
+
+        public void qrid_ColumnBingo(object sender, EventArgs e)
+        {
+        }
+
+        public void qrid_RowBingo(object sender, EventArgs e)
+        {
+        }
+
+        public void qrid_ColumnMiss(object sender, EventArgs e)
+        {
+            this.tbPoet.Text = "";
+            this.tbText.Text = "";
+            this.tbTitle.Text = "";
+        }
+
+        public void qrid_RowMiss(object sender, EventArgs e)
+        {
+            this.tbPoet.Text = "";
+            this.tbText.Text = "";
+            this.tbTitle.Text = "";
+        }
+
     }
 }

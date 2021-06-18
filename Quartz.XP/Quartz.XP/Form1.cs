@@ -131,6 +131,10 @@ namespace Quartz.XP
             Puzzle puzzle=(Puzzle)this.bindingSource.Current;
             this.rack.roulette_tiles(puzzle);
             this.qrid.SetBoard(puzzle);
+            this.qrid.ColumnBingo += new EventHandler(this.slabColumn.qrid_ColumnBingo);
+            this.qrid.ColumnMiss += new EventHandler(this.slabColumn.qrid_ColumnMiss);
+            this.qrid.RowBingo += new EventHandler(this.slabColumn.qrid_RowBingo);
+            this.qrid.RowMiss += new EventHandler(this.slabColumn.qrid_RowMiss);
         }
     }
 }

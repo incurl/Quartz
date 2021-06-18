@@ -50,24 +50,20 @@ namespace Quartz.XP.Controls
         private void tile_Click(object sender, EventArgs e)
         {
             Tile tile=(Tile)sender;
-            if (tile.Enabled)
+            if(tile.Pick())
             {
-                tile.Enabled = false;
                 this.Candidate = tile.Text;
                 foreach (Tile t in tiles)
                 {
                     if (t != tile)
                     {
-                        t.Enabled = true;
+                        t.UnPick();
                     }
                 }
             }
-            else
             {
-                tile.Enabled = true;
                 this.Candidate = null;
             }
-
         }
 
     }

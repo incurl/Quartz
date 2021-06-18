@@ -5,11 +5,13 @@ using System.Text;
 using Telerik.WinControls.UI;
 using Quartz.XP.Models;
 
+
 namespace Quartz.XP.Controls.Elements
 {
-    class CrystalCellElement: GridDataCellElement
+    class CrystalCellElement : GridDataCellElement
     {
-        public CrystalCellElement(GridViewColumn column, GridRowElement row) : base(column, row)
+        public CrystalCellElement(GridViewColumn column, GridRowElement row)
+            : base(column, row)
         {
 
         }
@@ -28,7 +30,7 @@ namespace Quartz.XP.Controls.Elements
         {
             if (this.Value != null && this.Value != DBNull.Value)
             {
-                this.lightVisualElement.Text = "";
+                this.lightVisualElement.Text = ((Cell)value).guess;
             }
         }
 

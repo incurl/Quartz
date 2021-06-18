@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Quartz.XP.Models;
 using Telerik.WinControls.UI;
+using Telerik.WinControls;
 using Accord.Controls;
 using Quartz.XP.Controls.Elements;
 
@@ -29,10 +30,16 @@ namespace Quartz.XP.Controls
         }
 
         private HashSet<int> crystal = new HashSet<int>();
+        private Puzzle puzzle;
+        public event EventHandler ColumnBingo;
+        public event EventHandler RowBingo;
+        public event EventHandler ColumnMiss;
+        public event EventHandler RowMiss;
 
         public void SetBoard(Puzzle p)
         {
-            this.grid.DataSource = new ArrayDataView(p.Quartz);
+            this.puzzle = p;
+            this.grid.DataSource = new ArrayDataView(this.puzzle.Quartz);
             this.grid.TableElement.RowHeight = 31;
             foreach (GridViewDataColumn col in grid.Columns)
             {
@@ -52,7 +59,7 @@ namespace Quartz.XP.Controls
                         
                     }
                 }
-            } 
+            }
         }
 
         private void grid_CellFormatting(object sender, CellFormattingEventArgs e)
@@ -62,6 +69,8 @@ namespace Quartz.XP.Controls
                 e.CellElement.BackColor = Color.Aqua;
                 e.CellElement.AllowDrop = true;
                 e.CellElement.AllowDrag = true;
+                //e.CellElement.BorderColor = Color.AliceBlue;
+                //e.CellElement.BorderThickness = new Padding(10);
             }
             else
             {
@@ -80,7 +89,6 @@ namespace Quartz.XP.Controls
             if (crystal.Contains(e.Column.Index) && crystal.Contains(e.Row.RowInfo.Index))
             {
                 e.CellElement = new CrystalCellElement(e.Column, e.Row);
-                
             }
             else
             {

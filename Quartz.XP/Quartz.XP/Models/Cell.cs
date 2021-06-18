@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using LiteDB;
+using Newtonsoft.Json;
 
 namespace Quartz.XP.Models
 {
@@ -10,5 +12,9 @@ namespace Quartz.XP.Models
         public String s { get; set; }
         public int c { get; set; }
         public int r { get; set; }
+
+        [BsonIgnore]
+        [JsonIgnore]
+        public string guess { get; set; }
     }
 }
