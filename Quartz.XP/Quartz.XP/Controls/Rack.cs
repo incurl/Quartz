@@ -91,5 +91,17 @@ namespace Quartz.XP.Controls
             }
         }
 
+        public void Restore_Tile(string t)
+        {
+            foreach (Tile tile in tiles)
+            {
+                if (tile.Text == t)
+                {
+                    tile.Played = false;
+                    tile.UnPick();
+                }
+            }
+        }
+
     }
 }

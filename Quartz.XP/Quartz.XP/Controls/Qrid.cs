@@ -98,11 +98,6 @@ namespace Quartz.XP.Controls
             }
         }
 
-        public void PlaceTile(Tile tile)
-        {
-
-        }
-
         private void grid_CellClick(object sender, GridViewCellEventArgs e)
         {
             int r=e.RowIndex;
@@ -137,7 +132,7 @@ namespace Quartz.XP.Controls
                 OnRowMiss(e);
             }
 
-            if (crystal.Contains(e.ColumnIndex) && crystal.Contains(e.RowIndex))
+            if (crystal.Contains(c) && crystal.Contains(r))
             {
                 OnTileMeUp(e);
             }
@@ -200,6 +195,21 @@ namespace Quartz.XP.Controls
         public void Update_Qrid(object sender, GridViewCellEventArgs e)
         {
             this.grid.TableElement.Update(GridUINotifyAction.StateChanged);
+        }
+
+        private void grid_CellBeginEdit(object sender, GridViewCellCancelEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
+        private void grid_CellDoubleClick(object sender, GridViewCellEventArgs e)
+        {
+            int r = e.RowIndex;
+            int c = e.ColumnIndex;
+            if (crystal.Contains(c) && crystal.Contains(r))
+            {
+                OnTileMeDown(e);
+            }
         }
     }
 }

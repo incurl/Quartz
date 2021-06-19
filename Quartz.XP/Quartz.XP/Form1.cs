@@ -146,7 +146,7 @@ namespace Quartz.XP
 
         private void bindingSource_CurrentChanged(object sender, EventArgs e)
         {
-            Puzzle puzzle=(Puzzle)this.bindingSource.Current;
+            Puzzle puzzle = (Puzzle)this.bindingSource.Current;
             this.rack.roulette_tiles(puzzle);
             this.qrid.SetBoard(puzzle);
             this.slabColumn.SetPoems(puzzle.Poems.Take<Poem>(3));
@@ -155,18 +155,30 @@ namespace Quartz.XP
 
         public void qrid_TileMeUp(object sender, GridViewCellEventArgs e)
         {
-            string candidate=this.rack.Candidate;
+            string g = ((Cell)e.Value).guess;
+            string candidate = this.rack.Candidate;
+            if (g != null && g != candidate && candidate != null)
+            {
+                this.rack.Restore_Tile(g);
+            }
             if (candidate != null)
             {
                 ((Cell)e.Value).guess = candidate;
                 OnUpdateQrid(e);
                 OnUpdateRack(e);
             }
-            
+
         }
 
         public void qrid_TileMeDown(object sender, GridViewCellEventArgs e)
         {
+            string g = ((Cell)e.Value).guess;
+            if (g != null)
+            {
+                this.rack.Restore_Tile(g);
+                ((Cell)e.Value).guess=null;
+                this.OnUpdateQrid(e);
+            }
         }
 
         protected virtual void OnUpdateQrid(GridViewCellEventArgs e)
