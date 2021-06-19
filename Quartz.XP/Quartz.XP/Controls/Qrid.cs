@@ -195,6 +195,7 @@ namespace Quartz.XP.Controls
         public void Update_Qrid(object sender, GridViewCellEventArgs e)
         {
             this.grid.TableElement.Update(GridUINotifyAction.StateChanged);
+            e.Row.InvalidateRow();
         }
 
         private void grid_CellBeginEdit(object sender, GridViewCellCancelEventArgs e)
@@ -211,5 +212,6 @@ namespace Quartz.XP.Controls
                 OnTileMeDown(e);
             }
         }
+
     }
 }
