@@ -13,6 +13,8 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Quartz.XP.Models;
 using System.Linq.Expressions;
+using Telerik.WinControls.UI;
+using System.Linq;
 
 namespace Quartz.XP
 {
@@ -26,12 +28,19 @@ namespace Quartz.XP
             WireUp();
         }
 
+        public event EventHandler<GridViewCellEventArgs> UpdateQrid;
+        public event EventHandler<GridViewCellEventArgs> UpdateRack;
+
         private void WireUp()
         {
             this.qrid.ColumnBingo += this.slabColumn.qrid_ColumnBingo;
             this.qrid.ColumnMiss += this.slabColumn.qrid_ColumnMiss;
-            this.qrid.RowBingo += this.slabColumn.qrid_RowBingo;
-            this.qrid.RowMiss += this.slabColumn.qrid_RowMiss;
+            this.qrid.RowBingo += this.slabRow.qrid_RowBingo;
+            this.qrid.RowMiss += this.slabRow.qrid_RowMiss;
+            this.qrid.TileMeUp += this.qrid_TileMeUp;
+            this.qrid.TileMeDown += this.qrid_TileMeDown;
+            this.UpdateQrid += this.qrid.Update_Qrid;
+            this.UpdateRack += this.rack.Update_Rack;
         }
 
         private void InitializeDb()
@@ -140,6 +149,52 @@ namespace Quartz.XP
             Puzzle puzzle=(Puzzle)this.bindingSource.Current;
             this.rack.roulette_tiles(puzzle);
             this.qrid.SetBoard(puzzle);
+            this.slabColumn.SetPoems(puzzle.Poems.Take<Poem>(3));
+            this.slabRow.SetPoems(puzzle.Poems.Skip<Poem>(3).Take<Poem>(3));
         }
+
+        public void qrid_TileMeUp(object sender, GridViewCellEventArgs e)
+        {
+            string candidate=this.rack.Candidate;
+            if (candidate != null)
+            {
+                ((Cell)e.Value).guess = candidate;
+                OnUpdateQrid(e);
+                OnUpdateRack(e);
+            }
+            
+        }
+
+        public void qrid_TileMeDown(object sender, GridViewCellEventArgs e)
+        {
+        }
+
+        protected virtual void OnUpdateQrid(GridViewCellEventArgs e)
+        {
+            EventHandler<GridViewCellEventArgs> handler = UpdateQrid;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        protected virtual void OnUpdateRack(GridViewCellEventArgs e)
+        {
+            EventHandler<GridViewCellEventArgs> handler = UpdateRack;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        private void radMenuItem3_Click(object sender, EventArgs e)
+        {
+            using (var db = new LiteDatabase(@"E:\Projects\Visual Studio\Quartz\Quartz.XP\Quartz.XP\Data\Quartz.db"))
+            {
+                var col = db.GetCollection<Puzzle>("puzzle");
+                col.Delete(Query.All());
+            }
+        }
+
     }
 }

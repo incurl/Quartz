@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Quartz.XP.Models;
+using Telerik.WinControls.UI;
 
 namespace Quartz.XP.Controls
 {
@@ -30,11 +31,12 @@ namespace Quartz.XP.Controls
             }
 
         }
+
         public void roulette_tiles(Puzzle puzzle)
         {
             Random rnd = new Random();
-            String[] tiles = new String[] {puzzle.a1, puzzle.a2, puzzle.a3, puzzle.b1, puzzle.b2, puzzle.b3, puzzle.c1, puzzle.c2, puzzle.c3 };
-            String[] shuffled = tiles.OrderBy(x => rnd.Next()).ToArray();
+            String[] original = new String[] {puzzle.a1, puzzle.a2, puzzle.a3, puzzle.b1, puzzle.b2, puzzle.b3, puzzle.c1, puzzle.c2, puzzle.c3 };
+            String[] shuffled = original.OrderBy(x => rnd.Next()).ToArray();
             this.tile1.Text = shuffled[0];
             this.tile2.Text = shuffled[1];
             this.tile3.Text = shuffled[2];
@@ -44,8 +46,14 @@ namespace Quartz.XP.Controls
             this.tile7.Text = shuffled[6];
             this.tile8.Text = shuffled[7];
             this.tile9.Text = shuffled[8];
+            foreach (Tile t in this.tiles)
+            {
+                t.Played = false;
+                t.UnPick();
+            }
             
         }
+
 
         private void tile_Click(object sender, EventArgs e)
         {
@@ -61,8 +69,25 @@ namespace Quartz.XP.Controls
                     }
                 }
             }
+            else
             {
                 this.Candidate = null;
+            }
+        }
+
+        public void Update_Rack(object sender, GridViewCellEventArgs e)
+        {
+            string g=((Cell)e.Value).guess;
+            if(g!=null)
+            {
+                foreach (Tile t in tiles)
+                {
+                    if (t.Text == g)
+                    {
+                        t.Played = true;
+                        this.Candidate = null;
+                    }
+                }
             }
         }
 

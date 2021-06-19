@@ -35,6 +35,8 @@ namespace Quartz.XP.Controls
         public event EventHandler<GridViewCellEventArgs> RowBingo;
         public event EventHandler<GridViewCellEventArgs> ColumnMiss;
         public event EventHandler<GridViewCellEventArgs> RowMiss;
+        public event EventHandler<GridViewCellEventArgs> TileMeUp;
+        public event EventHandler<GridViewCellEventArgs> TileMeDown;
 
         public void SetBoard(Puzzle p)
         {
@@ -111,11 +113,11 @@ namespace Quartz.XP.Controls
             {
                 if(((Cell)grid.Rows[r].Cells[i].Value).guess!=((Cell)grid.Rows[r].Cells[i].Value).s)
                 {
-                    columnBingo=false;
+                    rowBingo=false;
                 }
-                if(((Cell)grid.Rows[i].Cells[c].Value).guess!=((Cell)grid.Rows[r].Cells[i].Value).s)
+                if(((Cell)grid.Rows[i].Cells[c].Value).guess!=((Cell)grid.Rows[i].Cells[c].Value).s)
                 {
-                    rowBingo = false;
+                    columnBingo = false;
                 }
             }
             if (columnBingo)
@@ -126,7 +128,7 @@ namespace Quartz.XP.Controls
             {
                 OnColumnMiss(e);
             }
-            if (columnBingo)
+            if (rowBingo)
             {
                 OnRowBingo(e);
             }
@@ -134,22 +136,10 @@ namespace Quartz.XP.Controls
             {
                 OnRowMiss(e);
             }
-                
+
             if (crystal.Contains(e.ColumnIndex) && crystal.Contains(e.RowIndex))
             {
-                if (((Cell)e.Value).guess == null)
-                {
-                }
-                else
-                {
-                }
-
-            }
-            else
-            {
-                if (e.Value != null)
-                {
-                }
+                OnTileMeUp(e);
             }
         }
 
@@ -189,5 +179,27 @@ namespace Quartz.XP.Controls
             }
         }
 
+        protected virtual void OnTileMeUp(GridViewCellEventArgs e)
+        {
+            EventHandler<GridViewCellEventArgs> handler = TileMeUp;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        protected virtual void OnTileMeDown(GridViewCellEventArgs e)
+        {
+            EventHandler<GridViewCellEventArgs> handler = TileMeDown;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        public void Update_Qrid(object sender, GridViewCellEventArgs e)
+        {
+            this.grid.TableElement.Update(GridUINotifyAction.StateChanged);
+        }
     }
 }

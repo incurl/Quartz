@@ -8,17 +8,24 @@ using System.Text;
 using System.Windows.Forms;
 using Quartz.XP.Models;
 using Telerik.WinControls.UI;
+using System.Linq;
 
 namespace Quartz.XP.Controls
 {
     public partial class Slab : UserControl
     {
+        private IEnumerable<Poem> poems;
         public Slab()
         {
             InitializeComponent();
         }
 
-        public void DisplayPoem(Poem poem)
+        public void SetPoems(IEnumerable<Poem> ps)
+        {
+            this.poems = ps;
+        }
+
+        protected void DisplayPoem(Poem poem)
         {
             this.tbTitle.Text=poem.Title;
             this.tbText.Text=poem.Text;
@@ -27,10 +34,26 @@ namespace Quartz.XP.Controls
 
         public void qrid_ColumnBingo(object sender, GridViewCellEventArgs e)
         {
+            int c = ((Cell)e.Value).c;
+            foreach (Poem p in this.poems)
+            {
+                if (p.id == c)
+                {
+                    this.DisplayPoem(p);
+                }
+            }
         }
 
         public void qrid_RowBingo(object sender, GridViewCellEventArgs e)
         {
+            int r = ((Cell)e.Value).r;
+            foreach (Poem p in this.poems)
+            {
+                if (p.id == r)
+                {
+                    this.DisplayPoem(p);
+                }
+            }
         }
 
         public void qrid_ColumnMiss(object sender, GridViewCellEventArgs e)

@@ -59,6 +59,7 @@
             this.slabColumn = new Quartz.XP.Controls.Slab();
             this.object_59b0142b_3fff_4375_9db7_bd498689cf89 = new Telerik.WinControls.RootRadElement();
             this.object_dc9d4e8c_31b6_44c6_8869_3be89f660440 = new Telerik.WinControls.UI.RadBindingNavigator.RadBindingNavigatorRootElement();
+            this.radMenuItem3 = new Telerik.WinControls.UI.RadMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).BeginInit();
             this.radMenu1.SuspendLayout();
@@ -232,7 +233,8 @@
             this.radMenuItem1.AccessibleDescription = "&Tools";
             this.radMenuItem1.AccessibleName = "&Tools";
             this.radMenuItem1.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radMenuItem2});
+            this.radMenuItem2,
+            this.radMenuItem3});
             this.radMenuItem1.Name = "radMenuItem1";
             this.radMenuItem1.Text = "&Tools";
             // 
@@ -323,6 +325,7 @@
             // 
             // rack
             // 
+            this.rack.Candidate = null;
             this.rack.Location = new System.Drawing.Point(3, -3);
             this.rack.Name = "rack";
             this.rack.Size = new System.Drawing.Size(528, 31);
@@ -358,6 +361,14 @@
             // object_dc9d4e8c_31b6_44c6_8869_3be89f660440
             // 
             this.object_dc9d4e8c_31b6_44c6_8869_3be89f660440.Name = "object_dc9d4e8c_31b6_44c6_8869_3be89f660440";
+            // 
+            // radMenuItem3
+            // 
+            this.radMenuItem3.AccessibleDescription = "&Purge";
+            this.radMenuItem3.AccessibleName = "&Purge";
+            this.radMenuItem3.Name = "radMenuItem3";
+            this.radMenuItem3.Text = "&Purge";
+            this.radMenuItem3.Click += new System.EventHandler(this.radMenuItem3_Click);
             // 
             // Form1
             // 
@@ -423,6 +434,7 @@
         private Telerik.WinControls.UI.CommandBarButton radBindingNavigator1MoveNextItem;
         private Telerik.WinControls.UI.CommandBarSeparator commandBarSeparator4;
         private Telerik.WinControls.UI.CommandBarButton radBindingNavigator1MoveLastItem;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem3;
 
     }
 }

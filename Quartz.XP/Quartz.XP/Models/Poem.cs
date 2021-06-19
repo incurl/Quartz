@@ -7,6 +7,7 @@ namespace Quartz.XP.Models
 {
     public class Poem
     {
+        public int id { get; set; }
         public String Title { get; set; }
         public String Author { get; set; }
         public String Text { get; set; }
