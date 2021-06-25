@@ -21,6 +21,8 @@ namespace Quartz.XP.Models
         public String c1 { get; set; }
         public String c2 { get; set; }
         public String c3 { get; set; }
+        public int Difficulty { get; set; }
+        public bool Binned { get; set; }
         [JsonIgnore]
         public bool Solved { get; set; }
 

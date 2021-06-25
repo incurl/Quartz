@@ -43,7 +43,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(528, 394);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(500, 856);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // tbTitle
@@ -51,7 +51,7 @@
             this.tbTitle.Location = new System.Drawing.Point(3, 3);
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.ReadOnly = true;
-            this.tbTitle.Size = new System.Drawing.Size(525, 20);
+            this.tbTitle.Size = new System.Drawing.Size(494, 20);
             this.tbTitle.TabIndex = 0;
             // 
             // tbPoet
@@ -59,26 +59,28 @@
             this.tbPoet.Location = new System.Drawing.Point(3, 29);
             this.tbPoet.Name = "tbPoet";
             this.tbPoet.ReadOnly = true;
-            this.tbPoet.Size = new System.Drawing.Size(525, 20);
+            this.tbPoet.Size = new System.Drawing.Size(497, 20);
             this.tbPoet.TabIndex = 1;
             // 
             // tbText
             // 
+            this.tbText.Dock = System.Windows.Forms.DockStyle.Top;
             this.tbText.Location = new System.Drawing.Point(3, 55);
             this.tbText.Multiline = true;
             this.tbText.Name = "tbText";
             this.tbText.ReadOnly = true;
             this.tbText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbText.Size = new System.Drawing.Size(525, 333);
+            this.tbText.Size = new System.Drawing.Size(497, 800);
             this.tbText.TabIndex = 2;
             // 
             // Slab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.Controls.Add(this.flowLayoutPanel2);
             this.Name = "Slab";
-            this.Size = new System.Drawing.Size(528, 394);
+            this.Size = new System.Drawing.Size(500, 856);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);

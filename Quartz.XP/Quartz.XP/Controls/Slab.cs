@@ -8,7 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using Quartz.XP.Models;
 using Telerik.WinControls.UI;
-using System.Linq;
 
 namespace Quartz.XP.Controls
 {
@@ -23,6 +22,8 @@ namespace Quartz.XP.Controls
         public void SetPoems(IEnumerable<Poem> ps)
         {
             this.poems = ps;
+            this.qrid_ColumnMiss(null, null);
+            this.qrid_RowMiss(null, null);
         }
 
         protected void DisplayPoem(Poem poem)

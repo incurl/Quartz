@@ -14,12 +14,16 @@ using Newtonsoft.Json.Linq;
 using Quartz.XP.Models;
 using System.Linq.Expressions;
 using Telerik.WinControls.UI;
-using System.Linq;
 
 namespace Quartz.XP
 {
     public partial class Form1 : Form
     {
+        static Form1()
+        {
+            Telerik.WinControls.RadTypeResolver.Instance.ResolveTypesInCurrentAssembly = true;
+        }
+        
         public Form1()
         {
             InitializeComponent();
