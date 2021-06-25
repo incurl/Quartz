@@ -132,6 +132,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Badge.cs" />
     <Compile Include="Models\Bundle.cs" />
     <Compile Include="Models\Cell.cs" />
     <Compile Include="Models\Poem.cs" />

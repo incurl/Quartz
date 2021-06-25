@@ -101,18 +101,25 @@ namespace Quartz.XP
                     return array;
                 })
             );
+            Load_Data();
+        }
 
+        private void Load_Data()
+        {
             using (var db = new LiteDatabase(@".\Data\Quartz.db"))
             {
-                var col = db.GetCollection<Puzzle>("puzzle");
-                col.EnsureIndex<int>(x => x.id);
-                col.EnsureIndex<bool>(x => x.Solved);
-                puzzles = col.Find(x => x.Solved == false).ToList<Puzzle>();
+                var col = db.GetCollection<Bundle>("bundle");
+                bundle = col.FindOne(x => true);
+                if (bundle != null)
+                {
+                    puzzles = bundle.Pool.ToList<Puzzle>();
+                }
             }
             bindingSource.DataSource = puzzles;
         }
 
         private OpenFileDialog openFileDialog1;
+        private Bundle bundle;
         private List<Puzzle> puzzles;
 
         private void radMenuItem2_Click(object sender, EventArgs e)
@@ -123,9 +130,7 @@ namespace Quartz.XP
                 {
                     var sr = new StreamReader(openFileDialog1.FileName);
                     var json = sr.ReadToEnd();
-                    puzzles = JsonConvert.DeserializeObject<List<Puzzle>>(json);
-
-                    importJson();
+                    bundle = JsonConvert.DeserializeObject <List<Bundle>>(json).First<Bundle>();
                 }
                 catch (SecurityException ex)
                 {
@@ -136,15 +141,10 @@ namespace Quartz.XP
 
         private void importJson()
         {
-            using (var db = new LiteDatabase(@"E:\Projects\Visual Studio\Quartz\Quartz.XP\Quartz.XP\Data\Quartz.db"))
+            using (var db = new LiteDatabase(@".\Data\Quartz.db"))
             {
-                var col = db.GetCollection<Puzzle>("puzzle");
-                foreach (Puzzle p in puzzles)
-                {
-                    col.Insert(p);
-                }
-                col.EnsureIndex<int>(x => x.id);
-                col.EnsureIndex<bool>(x => x.Solved);
+                var col = db.GetCollection<Bundle>("bundle");
+                col.Insert(bundle);
             }
         }
 
@@ -203,12 +203,40 @@ namespace Quartz.XP
             }
         }
 
+        private void radMenuItem6_Click(object sender, EventArgs e)
+        {
+            if (bundle != null && puzzles != null)
+            {
+                bundle.Pool = puzzles.ToArray<Puzzle>();
+                importJson();
+                Load_Data();
+            }
+        }
+
+        private void radMenuItem7_Click(object sender, EventArgs e)
+        {
+            using (var db = new LiteDatabase(@".\Data\Quartz.db"))
+            {
+                var col = db.GetCollection<Bundle>("bundle");
+                col.Delete(Query.All());
+            }
+        }
+
         private void radMenuItem3_Click(object sender, EventArgs e)
         {
-            using (var db = new LiteDatabase(@"E:\Projects\Visual Studio\Quartz\Quartz.XP\Quartz.XP\Data\Quartz.db"))
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                var col = db.GetCollection<Puzzle>("puzzle");
-                col.Delete(Query.All());
+                try
+                {
+                    var sr = new StreamReader(openFileDialog1.FileName);
+                    var json = sr.ReadToEnd();
+                    puzzles = JsonConvert.DeserializeObject<List<Puzzle>>(json);
+
+                }
+                catch (SecurityException ex)
+                {
+                    //MessageBox.Show($"Security error.\n\nError message: {ex.Message}\n\n" +$"Details:\n\n{ex.StackTrace}");
+                }
             }
         }
 

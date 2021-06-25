@@ -69,6 +69,8 @@
             this.object_59b0142b_3fff_4375_9db7_bd498689cf89 = new Telerik.WinControls.RootRadElement();
             this.object_dc9d4e8c_31b6_44c6_8869_3be89f660440 = new Telerik.WinControls.UI.RadBindingNavigator.RadBindingNavigatorRootElement();
             this.radMenuItem4 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem6 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem7 = new Telerik.WinControls.UI.RadMenuItem();
             this.documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             this.documentWindow2 = new Telerik.WinControls.UI.Docking.DocumentWindow();
             this.bindingSourceBundle = new System.Windows.Forms.BindingSource(this.components);
@@ -529,8 +531,27 @@
             // 
             this.radMenuItem4.AccessibleDescription = "&View";
             this.radMenuItem4.AccessibleName = "&View";
+            this.radMenuItem4.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radMenuItem6,
+            this.radMenuItem7});
             this.radMenuItem4.Name = "radMenuItem4";
-            this.radMenuItem4.Text = "&View";
+            this.radMenuItem4.Text = "&Database";
+            // 
+            // radMenuItem6
+            // 
+            this.radMenuItem6.AccessibleDescription = "&Load";
+            this.radMenuItem6.AccessibleName = "&Load";
+            this.radMenuItem6.Name = "radMenuItem6";
+            this.radMenuItem6.Text = "&Load";
+            this.radMenuItem6.Click += new System.EventHandler(this.radMenuItem6_Click);
+            // 
+            // radMenuItem7
+            // 
+            this.radMenuItem7.AccessibleDescription = "P&urge";
+            this.radMenuItem7.AccessibleName = "P&urge";
+            this.radMenuItem7.Name = "radMenuItem7";
+            this.radMenuItem7.Text = "P&urge";
+            this.radMenuItem7.Click += new System.EventHandler(this.radMenuItem7_Click);
             // 
             // documentTabStrip1
             // 
@@ -561,7 +582,7 @@
             this.radMenuItem2.AccessibleDescription = "&Load";
             this.radMenuItem2.AccessibleName = "&Load";
             this.radMenuItem2.Name = "radMenuItem2";
-            this.radMenuItem2.Text = "&Load";
+            this.radMenuItem2.Text = "&Bundle";
             this.radMenuItem2.Click += new System.EventHandler(this.radMenuItem2_Click);
             // 
             // radMenuItem5
@@ -576,7 +597,7 @@
             this.radMenuItem3.AccessibleDescription = "&Purge";
             this.radMenuItem3.AccessibleName = "&Purge";
             this.radMenuItem3.Name = "radMenuItem3";
-            this.radMenuItem3.Text = "&Purge";
+            this.radMenuItem3.Text = "&Puzzles";
             this.radMenuItem3.Click += new System.EventHandler(this.radMenuItem3_Click);
             // 
             // radMenuItem1
@@ -587,22 +608,24 @@
             this.radMenuItem2,
             this.radMenuItem3});
             this.radMenuItem1.Name = "radMenuItem1";
-            this.radMenuItem1.Text = "&Tools";
+            this.radMenuItem1.Text = "&JSON";
+            // 
+            // radMenu1
+            // 
+            this.radMenu1.Controls.Add(this.radBindingNavigator1);
+            this.radMenu1.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radMenuItem1,
+            this.radMenuItem4});
+            this.radMenu1.Location = new System.Drawing.Point(0, 0);
+            this.radMenu1.Name = "radMenu1";
+            this.radMenu1.Size = new System.Drawing.Size(1592, 20);
+            this.radMenu1.TabIndex = 4;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1592, 920);
-            // 
-            // radMenu1
-            // 
-            this.radMenu1.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radMenuItem1, this.radMenuItem4});
-            this.radMenu1.Location = new System.Drawing.Point(0, 0);
-            this.radMenu1.Name = "radMenu1";
-            this.radMenu1.Size = new System.Drawing.Size(1592, 20);
-            this.radMenu1.TabIndex = 4;
             this.Controls.Add(this.radSplitContainer1);
             this.Controls.Add(this.radMenu1);
             this.Controls.Add(this.radStatusStrip1);
@@ -699,6 +722,8 @@
         private Telerik.WinControls.UI.RadMenuItem radMenuItem3;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem1;
         private Telerik.WinControls.UI.RadMenu radMenu1;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem6;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem7;
 
     }
 }
