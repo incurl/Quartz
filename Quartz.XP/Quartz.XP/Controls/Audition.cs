@@ -15,5 +15,10 @@ namespace Quartz.XP.Controls
         {
             InitializeComponent();
         }
+
+        public BindingSource BindingSourceBundle
+        {
+            get { return this.bindingSourceBundle; }
+        }
     }
 }

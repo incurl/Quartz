@@ -109,17 +109,14 @@ namespace Quartz.XP
             using (var db = new LiteDatabase(@".\Data\Quartz.db"))
             {
                 var col = db.GetCollection<Bundle>("bundle");
-                bundle = col.FindOne(x => true);
-                if (bundle != null)
-                {
-                    puzzles = bundle.Pool.ToList<Puzzle>();
-                }
+                bundles = col.FindAll().ToList<Bundle>();
             }
-            bindingSource.DataSource = puzzles;
+            this.audition1.BindingSourceBundle.DataSource = bundles;
         }
 
         private OpenFileDialog openFileDialog1;
         private Bundle bundle;
+        private List<Bundle> bundles;
         private List<Puzzle> puzzles;
 
         private void radMenuItem2_Click(object sender, EventArgs e)
@@ -139,12 +136,26 @@ namespace Quartz.XP
             }
         }
 
-        private void importJson()
+        private void importBundleJson()
         {
             using (var db = new LiteDatabase(@".\Data\Quartz.db"))
             {
                 var col = db.GetCollection<Bundle>("bundle");
                 col.Insert(bundle);
+            }
+        }
+
+        private void importPuzzleJson()
+        {
+            using (var db = new LiteDatabase(@".\Data\Quartz.db"))
+            {
+                var col = db.GetCollection<Puzzle>("puzzle");
+                foreach (Puzzle p in puzzles)
+                {
+                    col.Insert(p);
+                }
+                col.EnsureIndex<int>(x => x.id);
+                col.EnsureIndex<bool>(x => x.Solved);
             }
         }
 
@@ -205,12 +216,15 @@ namespace Quartz.XP
 
         private void radMenuItem6_Click(object sender, EventArgs e)
         {
-            if (bundle != null && puzzles != null)
+            if (bundle != null)
             {
-                bundle.Pool = puzzles.ToArray<Puzzle>();
-                importJson();
-                Load_Data();
+                importBundleJson();
             }
+            if (puzzles != null)
+            {
+                importPuzzleJson();
+            }
+            Load_Data();
         }
 
         private void radMenuItem7_Click(object sender, EventArgs e)
