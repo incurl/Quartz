@@ -32,7 +32,7 @@
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.poolGrid = new Telerik.WinControls.UI.RadGridView();
+            this.waitingGrid = new Telerik.WinControls.UI.RadGridView();
             this.binGrid = new Telerik.WinControls.UI.RadGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.poolGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.waitingGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.binGrid)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceBundle)).BeginInit();
@@ -56,7 +56,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.poolGrid);
+            this.splitContainer1.Panel1.Controls.Add(this.waitingGrid);
             // 
             // splitContainer1.Panel2
             // 
@@ -65,27 +65,27 @@
             this.splitContainer1.SplitterDistance = 396;
             this.splitContainer1.TabIndex = 0;
             // 
-            // poolGrid
+            // waitingGrid
             // 
-            this.poolGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.poolGrid.Location = new System.Drawing.Point(0, 0);
+            this.waitingGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.waitingGrid.Location = new System.Drawing.Point(0, 0);
             // 
             // 
             // 
-            this.poolGrid.MasterTemplate.AllowAddNewRow = false;
-            this.poolGrid.MasterTemplate.ShowColumnHeaders = false;
-            this.poolGrid.MasterTemplate.ShowRowHeaderColumn = false;
-            this.poolGrid.MasterTemplate.ViewDefinition = tableViewDefinition1;
-            this.poolGrid.Name = "poolGrid";
-            this.poolGrid.ShowGroupPanel = false;
-            this.poolGrid.Size = new System.Drawing.Size(500, 396);
-            this.poolGrid.TabIndex = 0;
-            this.poolGrid.Text = "radGridView1";
-            this.poolGrid.CreateCell += new Telerik.WinControls.UI.GridViewCreateCellEventHandler(this.poolGrid_CreateCell);
-            this.poolGrid.CellFormatting += new Telerik.WinControls.UI.CellFormattingEventHandler(this.poolGrid_CellFormatting);
-            this.poolGrid.CellBeginEdit += new Telerik.WinControls.UI.GridViewCellCancelEventHandler(this.poolGrid_CellBeginEdit);
-            this.poolGrid.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.poolGrid_CellClick);
-            this.poolGrid.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.poolGrid_CellDoubleClick);
+            this.waitingGrid.MasterTemplate.AllowAddNewRow = false;
+            this.waitingGrid.MasterTemplate.ShowColumnHeaders = false;
+            this.waitingGrid.MasterTemplate.ShowRowHeaderColumn = false;
+            this.waitingGrid.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.waitingGrid.Name = "waitingGrid";
+            this.waitingGrid.ShowGroupPanel = false;
+            this.waitingGrid.Size = new System.Drawing.Size(500, 396);
+            this.waitingGrid.TabIndex = 0;
+            this.waitingGrid.Text = "radGridView1";
+            this.waitingGrid.CreateCell += new Telerik.WinControls.UI.GridViewCreateCellEventHandler(this.waitingGrid_CreateCell);
+            this.waitingGrid.CellFormatting += new Telerik.WinControls.UI.CellFormattingEventHandler(this.waitingGrid_CellFormatting);
+            this.waitingGrid.CellBeginEdit += new Telerik.WinControls.UI.GridViewCellCancelEventHandler(this.waitingGrid_CellBeginEdit);
+            this.waitingGrid.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.grid_CellClick);
+            this.waitingGrid.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.grid_CellDoubleClick);
             // 
             // binGrid
             // 
@@ -94,18 +94,20 @@
             // 
             // 
             // 
+            this.binGrid.MasterTemplate.AllowAddNewRow = false;
             this.binGrid.MasterTemplate.ShowColumnHeaders = false;
             this.binGrid.MasterTemplate.ShowRowHeaderColumn = false;
             this.binGrid.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.binGrid.Name = "binGrid";
+            this.binGrid.ShowGroupPanel = false;
             this.binGrid.Size = new System.Drawing.Size(500, 387);
             this.binGrid.TabIndex = 0;
             this.binGrid.Text = "radGridView2";
             this.binGrid.CreateCell += new Telerik.WinControls.UI.GridViewCreateCellEventHandler(this.binGrid_CreateCell);
             this.binGrid.CellFormatting += new Telerik.WinControls.UI.CellFormattingEventHandler(this.binGrid_CellFormatting);
             this.binGrid.CellBeginEdit += new Telerik.WinControls.UI.GridViewCellCancelEventHandler(this.binGrid_CellBeginEdit);
-            this.binGrid.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.binGrid_CellClick);
-            this.binGrid.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.binGrid_CellDoubleClick);
+            this.binGrid.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.grid_CellClick);
+            this.binGrid.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.grid_CellDoubleClick);
             // 
             // flowLayoutPanel1
             // 
@@ -148,7 +150,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.poolGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.waitingGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.binGrid)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
@@ -160,7 +162,7 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private Telerik.WinControls.UI.RadGridView poolGrid;
+        private Telerik.WinControls.UI.RadGridView waitingGrid;
         private Telerik.WinControls.UI.RadGridView binGrid;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;

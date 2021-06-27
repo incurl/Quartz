@@ -15,7 +15,7 @@ namespace Quartz.XP.Models
         public Badge[] assembly {get; set;}
         [BsonIgnore]
         [JsonIgnore]
-        public Puzzle[] Pool { get; set; }
+        public List<Puzzle> Pool { get; set; }
         [BsonIgnore]
         [JsonIgnore]
         public string Title {
@@ -25,25 +25,77 @@ namespace Quartz.XP.Models
             }
         }
 
-        public Badge[,] Transformed() 
+        public void Initilaize(List<Puzzle> puzzles)
         {
             int index = 0;
-            int Rows=11;
-            int Columns=11;
-            Badge[,] twoDimensionalArray = new Badge[Rows, Columns];
-            
+            foreach (Puzzle puzzle in puzzles)
+            {
+                Badge badge = assembly[index];
+                badge.eye = exclusive[index];
+                puzzle.Badge=badge;
+                index++;
+            }
+            this.Pool=puzzles;
+        }
+
+        private Dictionary<Func<int, bool>, Tuple<int, int>> squareSwitch = new Dictionary<Func<int, bool>, Tuple<int, int>>
+            { 
+             { x => x <=49,    Tuple.Create(7,7)},  
+             { x => x <=64,    Tuple.Create(8,8)},
+             { x => x <=81,    Tuple.Create(9,9)},
+             { x => x <=100,   Tuple.Create(10,10)},
+             { x => x <=121 ,  Tuple.Create(11,11)}
+            };
+
+        public Puzzle[,] Waiting()
+        {
+            int index = 0;
+            Puzzle[] waiting= Pool.Where<Puzzle>(x=>(!x.Binned)).ToArray();
+            int count = waiting.Count<Puzzle>();
+            Tuple<int, int> t = squareSwitch.First(sw => sw.Key(waiting.Count<Puzzle>())).Value;
+            int Rows = t.Item1;
+            int Columns = t.Item2;
+            Puzzle[,] twoDimensionalArray = new Puzzle[Rows, Columns];
+
             for (int x = 0; x < Rows; x++)
             {
                 for (int y = 0; y < Columns; y++)
                 {
-                    Badge badge = assembly[index];
-                    badge.eye = exclusive[index];
-                    badge.Puzzle = Pool[index];
-                    twoDimensionalArray[x, y] = badge;
+                    if (index < count)
+                    {
+                        Puzzle puzzle = waiting[index];
+                        twoDimensionalArray[x, y] = puzzle;
+                    }
                     index++;
                 }
             }
             return twoDimensionalArray;
         }
+
+        public Puzzle[,] Binned()
+        {
+            int index = 0;
+            Puzzle[] binned = Pool.Where<Puzzle>(x => (x.Binned)).ToArray();
+            int count = binned.Count<Puzzle>();
+            Tuple<int, int> t = squareSwitch.First(sw => sw.Key(count)).Value;
+            int Rows = t.Item1;
+            int Columns = t.Item2;
+            Puzzle[,] twoDimensionalArray = new Puzzle[Rows, Columns];
+
+            for (int x = 0; x < Rows; x++)
+            {
+                for (int y = 0; y < Columns; y++)
+                {
+                    if (index < count)
+                    {
+                        Puzzle puzzle = binned[index];
+                        twoDimensionalArray[x, y] = puzzle;
+                    }
+                    index++;
+                }
+            }
+            return twoDimensionalArray;
+        }
+
     }
 }

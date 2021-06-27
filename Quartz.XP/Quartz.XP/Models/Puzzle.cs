@@ -26,6 +26,9 @@ namespace Quartz.XP.Models
         public bool Starred {get; set;}
         [JsonIgnore]
         public bool Solved { get; set; }
+        [BsonIgnore]
+        [JsonIgnore]
+        public Badge Badge { get; set; }
 
     }
 }

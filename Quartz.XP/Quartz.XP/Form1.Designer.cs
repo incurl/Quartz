@@ -28,23 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.radStatusStrip1 = new Telerik.WinControls.UI.RadStatusStrip();
-            this.radBindingNavigator1 = new Telerik.WinControls.UI.RadBindingNavigator();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.radBindingNavigator1RowElement = new Telerik.WinControls.UI.CommandBarRowElement();
-            this.radBindingNavigator1FirstStrip = new Telerik.WinControls.UI.CommandBarStripElement();
-            this.radBindingNavigator1MoveFirstItem = new Telerik.WinControls.UI.CommandBarButton();
-            this.commandBarSeparator1 = new Telerik.WinControls.UI.CommandBarSeparator();
-            this.radBindingNavigator1MovePreviousItem = new Telerik.WinControls.UI.CommandBarButton();
-            this.commandBarSeparator2 = new Telerik.WinControls.UI.CommandBarSeparator();
-            this.radBindingNavigator1PositionItem = new Telerik.WinControls.UI.CommandBarTextBox();
-            this.radBindingNavigator1CountItem = new Telerik.WinControls.UI.CommandBarLabel();
-            this.commandBarSeparator3 = new Telerik.WinControls.UI.CommandBarSeparator();
-            this.radBindingNavigator1MoveNextItem = new Telerik.WinControls.UI.CommandBarButton();
-            this.commandBarSeparator4 = new Telerik.WinControls.UI.CommandBarSeparator();
-            this.radBindingNavigator1MoveLastItem = new Telerik.WinControls.UI.CommandBarButton();
             this.radSplitContainer1 = new Telerik.WinControls.UI.RadSplitContainer();
             this.splitPanel1 = new Telerik.WinControls.UI.SplitPanel();
             this.radDock1 = new Telerik.WinControls.UI.Docking.RadDock();
@@ -80,8 +64,6 @@
             this.radMenuItem1 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenu1 = new Telerik.WinControls.UI.RadMenu();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radBindingNavigator1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radSplitContainer1)).BeginInit();
             this.radSplitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitPanel1)).BeginInit();
@@ -113,7 +95,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).BeginInit();
             this.documentTabStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).BeginInit();
-            this.radMenu1.SuspendLayout();
             this.SuspendLayout();
             // 
             // radStatusStrip1
@@ -123,136 +104,6 @@
             this.radStatusStrip1.Size = new System.Drawing.Size(1592, 26);
             this.radStatusStrip1.TabIndex = 1;
             this.radStatusStrip1.Text = "radStatusStrip1";
-            // 
-            // radBindingNavigator1
-            // 
-            this.radBindingNavigator1.BindingSource = this.bindingSource;
-            this.radBindingNavigator1.Dock = System.Windows.Forms.DockStyle.None;
-            this.radBindingNavigator1.Location = new System.Drawing.Point(684, 0);
-            this.radBindingNavigator1.Name = "radBindingNavigator1";
-            this.radBindingNavigator1.Rows.AddRange(new Telerik.WinControls.UI.CommandBarRowElement[] {
-            this.radBindingNavigator1RowElement});
-            this.radBindingNavigator1.Size = new System.Drawing.Size(238, 30);
-            this.radBindingNavigator1.TabIndex = 0;
-            this.radBindingNavigator1.Text = "radBindingNavigator1";
-            // 
-            // bindingSource
-            // 
-            this.bindingSource.AllowNew = false;
-            this.bindingSource.CurrentChanged += new System.EventHandler(this.bindingSource_CurrentChanged);
-            // 
-            // radBindingNavigator1RowElement
-            // 
-            this.radBindingNavigator1RowElement.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radBindingNavigator1RowElement.MinSize = new System.Drawing.Size(25, 25);
-            this.radBindingNavigator1RowElement.Strips.AddRange(new Telerik.WinControls.UI.CommandBarStripElement[] {
-            this.radBindingNavigator1FirstStrip});
-            this.radBindingNavigator1RowElement.Text = "";
-            this.radBindingNavigator1RowElement.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            // 
-            // radBindingNavigator1FirstStrip
-            // 
-            this.radBindingNavigator1FirstStrip.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radBindingNavigator1FirstStrip.DisplayName = "radBindingNavigator1FirstStrip";
-            this.radBindingNavigator1FirstStrip.EnableDragging = false;
-            // 
-            // 
-            // 
-            this.radBindingNavigator1FirstStrip.Grip.Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
-            this.radBindingNavigator1FirstStrip.Items.AddRange(new Telerik.WinControls.UI.RadCommandBarBaseItem[] {
-            this.radBindingNavigator1MoveFirstItem,
-            this.commandBarSeparator1,
-            this.radBindingNavigator1MovePreviousItem,
-            this.commandBarSeparator2,
-            this.radBindingNavigator1PositionItem,
-            this.radBindingNavigator1CountItem,
-            this.commandBarSeparator3,
-            this.radBindingNavigator1MoveNextItem,
-            this.commandBarSeparator4,
-            this.radBindingNavigator1MoveLastItem});
-            this.radBindingNavigator1FirstStrip.MinSize = new System.Drawing.Size(0, 0);
-            // 
-            // 
-            // 
-            this.radBindingNavigator1FirstStrip.OverflowButton.Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
-            this.radBindingNavigator1FirstStrip.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            ((Telerik.WinControls.UI.RadCommandBarGrip)(this.radBindingNavigator1FirstStrip.GetChildAt(0))).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
-            ((Telerik.WinControls.UI.RadCommandBarOverflowButton)(this.radBindingNavigator1FirstStrip.GetChildAt(2))).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
-            // 
-            // radBindingNavigator1MoveFirstItem
-            // 
-            this.radBindingNavigator1MoveFirstItem.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radBindingNavigator1MoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("radBindingNavigator1MoveFirstItem.Image")));
-            this.radBindingNavigator1MoveFirstItem.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.radBindingNavigator1MoveFirstItem.Name = "radBindingNavigator1MoveFirstItem";
-            this.radBindingNavigator1MoveFirstItem.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            // 
-            // commandBarSeparator1
-            // 
-            this.commandBarSeparator1.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.commandBarSeparator1.Name = "commandBarSeparator1";
-            this.commandBarSeparator1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.commandBarSeparator1.VisibleInOverflowMenu = false;
-            // 
-            // radBindingNavigator1MovePreviousItem
-            // 
-            this.radBindingNavigator1MovePreviousItem.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radBindingNavigator1MovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("radBindingNavigator1MovePreviousItem.Image")));
-            this.radBindingNavigator1MovePreviousItem.Name = "radBindingNavigator1MovePreviousItem";
-            this.radBindingNavigator1MovePreviousItem.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            // 
-            // commandBarSeparator2
-            // 
-            this.commandBarSeparator2.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.commandBarSeparator2.Name = "commandBarSeparator2";
-            this.commandBarSeparator2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.commandBarSeparator2.VisibleInOverflowMenu = false;
-            // 
-            // radBindingNavigator1PositionItem
-            // 
-            this.radBindingNavigator1PositionItem.AccessibleDescription = "0";
-            this.radBindingNavigator1PositionItem.AccessibleName = "0";
-            this.radBindingNavigator1PositionItem.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radBindingNavigator1PositionItem.Name = "radBindingNavigator1PositionItem";
-            this.radBindingNavigator1PositionItem.Text = "0";
-            this.radBindingNavigator1PositionItem.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            // 
-            // radBindingNavigator1CountItem
-            // 
-            this.radBindingNavigator1CountItem.AccessibleDescription = "of {0}";
-            this.radBindingNavigator1CountItem.AccessibleName = "of {0}";
-            this.radBindingNavigator1CountItem.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radBindingNavigator1CountItem.Name = "radBindingNavigator1CountItem";
-            this.radBindingNavigator1CountItem.Text = "of 0";
-            this.radBindingNavigator1CountItem.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            // 
-            // commandBarSeparator3
-            // 
-            this.commandBarSeparator3.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.commandBarSeparator3.Name = "commandBarSeparator3";
-            this.commandBarSeparator3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.commandBarSeparator3.VisibleInOverflowMenu = false;
-            // 
-            // radBindingNavigator1MoveNextItem
-            // 
-            this.radBindingNavigator1MoveNextItem.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radBindingNavigator1MoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("radBindingNavigator1MoveNextItem.Image")));
-            this.radBindingNavigator1MoveNextItem.Name = "radBindingNavigator1MoveNextItem";
-            this.radBindingNavigator1MoveNextItem.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            // 
-            // commandBarSeparator4
-            // 
-            this.commandBarSeparator4.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.commandBarSeparator4.Name = "commandBarSeparator4";
-            this.commandBarSeparator4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.commandBarSeparator4.VisibleInOverflowMenu = false;
-            // 
-            // radBindingNavigator1MoveLastItem
-            // 
-            this.radBindingNavigator1MoveLastItem.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radBindingNavigator1MoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("radBindingNavigator1MoveLastItem.Image")));
-            this.radBindingNavigator1MoveLastItem.Name = "radBindingNavigator1MoveLastItem";
-            this.radBindingNavigator1MoveLastItem.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             // 
             // radSplitContainer1
             // 
@@ -622,7 +473,6 @@
             // 
             // radMenu1
             // 
-            this.radMenu1.Controls.Add(this.radBindingNavigator1);
             this.radMenu1.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.radMenuItem1,
             this.radMenuItem4});
@@ -642,8 +492,6 @@
             this.Name = "Form1";
             this.Text = "Quartz";
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radBindingNavigator1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radSplitContainer1)).EndInit();
             this.radSplitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitPanel1)).EndInit();
@@ -677,8 +525,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).EndInit();
             this.documentTabStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).EndInit();
-            this.radMenu1.ResumeLayout(false);
-            this.radMenu1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -697,20 +543,6 @@
         private Controls.Slab slabColumn;
         private Controls.Qrid qrid;
         private Telerik.WinControls.UI.RadBindingNavigator.RadBindingNavigatorRootElement object_dc9d4e8c_31b6_44c6_8869_3be89f660440;
-        private System.Windows.Forms.BindingSource bindingSource;
-        private Telerik.WinControls.UI.RadBindingNavigator radBindingNavigator1;
-        private Telerik.WinControls.UI.CommandBarRowElement radBindingNavigator1RowElement;
-        private Telerik.WinControls.UI.CommandBarStripElement radBindingNavigator1FirstStrip;
-        private Telerik.WinControls.UI.CommandBarButton radBindingNavigator1MoveFirstItem;
-        private Telerik.WinControls.UI.CommandBarSeparator commandBarSeparator1;
-        private Telerik.WinControls.UI.CommandBarButton radBindingNavigator1MovePreviousItem;
-        private Telerik.WinControls.UI.CommandBarSeparator commandBarSeparator2;
-        private Telerik.WinControls.UI.CommandBarTextBox radBindingNavigator1PositionItem;
-        private Telerik.WinControls.UI.CommandBarLabel radBindingNavigator1CountItem;
-        private Telerik.WinControls.UI.CommandBarSeparator commandBarSeparator3;
-        private Telerik.WinControls.UI.CommandBarButton radBindingNavigator1MoveNextItem;
-        private Telerik.WinControls.UI.CommandBarSeparator commandBarSeparator4;
-        private Telerik.WinControls.UI.CommandBarButton radBindingNavigator1MoveLastItem;
         private Telerik.WinControls.UI.Docking.RadDock radDock1;
         private Telerik.WinControls.UI.Docking.ToolWindow toolWindow2;
         private Telerik.WinControls.UI.Docking.DocumentContainer documentContainer1;

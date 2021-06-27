@@ -180,15 +180,6 @@ namespace Quartz.XP
             this.slabRow.SetPoems(puzzle.Poems.Skip<Poem>(3).Take<Poem>(3));
         }
 
-        private void bindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-            Puzzle puzzle = (Puzzle)this.bindingSource.Current;
-            this.rack.roulette_tiles(puzzle);
-            this.qrid.SetBoard(puzzle);
-            this.slabColumn.SetPoems(puzzle.Poems.Take<Poem>(3));
-            this.slabRow.SetPoems(puzzle.Poems.Skip<Poem>(3).Take<Poem>(3));
-        }
-
         public void qrid_TileMeUp(object sender, GridViewCellEventArgs e)
         {
             string g = ((Cell)e.Value).guess;
@@ -290,10 +281,9 @@ namespace Quartz.XP
                 {
                     puzzles.Add(col_pzl.FindById(pid));
                 }
-                bundle.Pool = puzzles.ToArray();
+                bundle.Initilaize(puzzles);
                 this.judge.Idol = bundle;
                 this.audition.Idol = bundle;
-                //this.bindingSource.DataSource = puzzles;
             }
         }
 

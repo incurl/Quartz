@@ -46,8 +46,13 @@ namespace Quartz.XP.Controls
                 idol = value;
                 if (idol != null)
                 {
-                    this.poolGrid.DataSource = new ArrayDataView(idol.Transformed());
-                    foreach (GridViewDataColumn col in this.poolGrid.Columns)
+                    this.waitingGrid.DataSource = new ArrayDataView(idol.Waiting());
+                    foreach (GridViewDataColumn col in this.waitingGrid.Columns)
+                    {
+                        col.Width = 45;
+                    }
+                    this.binGrid.DataSource = new ArrayDataView(idol.Binned());
+                    foreach (GridViewDataColumn col in this.binGrid.Columns)
                     {
                         col.Width = 45;
                     }
@@ -86,11 +91,6 @@ namespace Quartz.XP.Controls
             }
         }
 
-        private void poolGrid_CellFormatting(object sender, CellFormattingEventArgs e)
-        {
-
-        }
-
         private void binGrid_CellFormatting(object sender, CellFormattingEventArgs e)
         {
 
@@ -101,40 +101,48 @@ namespace Quartz.XP.Controls
             e.CellElement = new BadgeCellElement(e.Column, e.Row);
         }
 
-        private void poolGrid_CreateCell(object sender, GridViewCreateCellEventArgs e)
+        private void binGrid_CellBeginEdit(object sender, GridViewCellCancelEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
+        private void waitingGrid_CellBeginEdit(object sender, GridViewCellCancelEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
+        private void waitingGrid_CellFormatting(object sender, CellFormattingEventArgs e)
+        {
+
+        }
+
+        private void grid_CellClick(object sender, GridViewCellEventArgs e)
+        {
+            var v = e.Value;
+            if (v != null)
+            {
+                Puzzle puzzle = (Puzzle)v;
+                OnSelectPuzzle(new SelectPuzzleEventArgs(puzzle));
+            }
+        }
+
+        private void waitingGrid_CreateCell(object sender, GridViewCreateCellEventArgs e)
         {
             e.CellElement = new BadgeCellElement(e.Column, e.Row);
         }
 
-        private void poolGrid_CellClick(object sender, GridViewCellEventArgs e)
+        private void grid_CellDoubleClick(object sender, GridViewCellEventArgs e)
         {
-            Puzzle puzzle = ((Badge)e.Value).Puzzle;
-            OnSelectPuzzle(new SelectPuzzleEventArgs(puzzle));
-        }
-
-        private void poolGrid_CellDoubleClick(object sender, GridViewCellEventArgs e)
-        {
-
-        }
-
-        private void binGrid_CellClick(object sender, GridViewCellEventArgs e)
-        {
-
-        }
-
-        private void binGrid_CellDoubleClick(object sender, GridViewCellEventArgs e)
-        {
-
-        }
-
-        private void poolGrid_CellBeginEdit(object sender, GridViewCellCancelEventArgs e)
-        {
-            e.Cancel = true;
-        }
-
-        private void binGrid_CellBeginEdit(object sender, GridViewCellCancelEventArgs e)
-        {
-            e.Cancel = true;
+            var v = e.Value;
+            if (v != null)
+            {
+                Puzzle puzzle = (Puzzle)v;
+                puzzle.Binned = !puzzle.Binned;
+                this.waitingGrid.DataSource=null;
+                this.waitingGrid.DataSource = new ArrayDataView(idol.Waiting());
+                this.binGrid.DataSource = null;
+                this.binGrid.DataSource = new ArrayDataView(idol.Binned());
+            }
         }
 
     }

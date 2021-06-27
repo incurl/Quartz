@@ -13,9 +13,6 @@ namespace Quartz.XP.Models
         public int p { get; set; }
         [BsonIgnore]
         [JsonIgnore]
-        public Puzzle Puzzle { get; set; }
-        [BsonIgnore]
-        [JsonIgnore]
         public string eye { get; set; }
 
     }
