@@ -213,5 +213,15 @@ namespace Quartz.XP.Controls
             }
         }
 
+        public void Reset_Puzzle(object sender, EventArgs e)
+        {
+
+        }
+
+        public void Reveal_Puzzle(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

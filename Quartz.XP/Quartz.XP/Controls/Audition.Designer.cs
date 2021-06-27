@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.poolGrid = new Telerik.WinControls.UI.RadGridView();
             this.binGrid = new Telerik.WinControls.UI.RadGridView();
@@ -72,13 +72,20 @@
             // 
             // 
             // 
+            this.poolGrid.MasterTemplate.AllowAddNewRow = false;
             this.poolGrid.MasterTemplate.ShowColumnHeaders = false;
             this.poolGrid.MasterTemplate.ShowRowHeaderColumn = false;
-            this.poolGrid.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            this.poolGrid.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.poolGrid.Name = "poolGrid";
+            this.poolGrid.ShowGroupPanel = false;
             this.poolGrid.Size = new System.Drawing.Size(500, 396);
             this.poolGrid.TabIndex = 0;
             this.poolGrid.Text = "radGridView1";
+            this.poolGrid.CreateCell += new Telerik.WinControls.UI.GridViewCreateCellEventHandler(this.poolGrid_CreateCell);
+            this.poolGrid.CellFormatting += new Telerik.WinControls.UI.CellFormattingEventHandler(this.poolGrid_CellFormatting);
+            this.poolGrid.CellBeginEdit += new Telerik.WinControls.UI.GridViewCellCancelEventHandler(this.poolGrid_CellBeginEdit);
+            this.poolGrid.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.poolGrid_CellClick);
+            this.poolGrid.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.poolGrid_CellDoubleClick);
             // 
             // binGrid
             // 
@@ -89,11 +96,16 @@
             // 
             this.binGrid.MasterTemplate.ShowColumnHeaders = false;
             this.binGrid.MasterTemplate.ShowRowHeaderColumn = false;
-            this.binGrid.MasterTemplate.ViewDefinition = tableViewDefinition4;
+            this.binGrid.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.binGrid.Name = "binGrid";
             this.binGrid.Size = new System.Drawing.Size(500, 387);
             this.binGrid.TabIndex = 0;
             this.binGrid.Text = "radGridView2";
+            this.binGrid.CreateCell += new Telerik.WinControls.UI.GridViewCreateCellEventHandler(this.binGrid_CreateCell);
+            this.binGrid.CellFormatting += new Telerik.WinControls.UI.CellFormattingEventHandler(this.binGrid_CellFormatting);
+            this.binGrid.CellBeginEdit += new Telerik.WinControls.UI.GridViewCellCancelEventHandler(this.binGrid_CellBeginEdit);
+            this.binGrid.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.binGrid_CellClick);
+            this.binGrid.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.binGrid_CellDoubleClick);
             // 
             // flowLayoutPanel1
             // 
@@ -123,6 +135,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(406, 21);
             this.comboBox1.TabIndex = 2;
+            this.comboBox1.SelectedValueChanged += new System.EventHandler(this.comboBox1_SelectedValueChanged);
             // 
             // Audition
             // 

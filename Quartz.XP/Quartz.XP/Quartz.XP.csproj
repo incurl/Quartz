@@ -87,6 +87,7 @@
     <Compile Include="Controls\Audition.Designer.cs">
       <DependentUpon>Audition.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Elements\BadgeCellElement.cs" />
     <Compile Include="Controls\Elements\CrystalCellElement.cs" />
     <Compile Include="Controls\Judge.cs">
       <SubType>UserControl</SubType>

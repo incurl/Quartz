@@ -48,13 +48,22 @@
             this.radSplitContainer1 = new Telerik.WinControls.UI.RadSplitContainer();
             this.splitPanel1 = new Telerik.WinControls.UI.SplitPanel();
             this.radDock1 = new Telerik.WinControls.UI.Docking.RadDock();
+            this.toolWindow2 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            this.audition = new Quartz.XP.Controls.Audition();
             this.documentContainer1 = new Telerik.WinControls.UI.Docking.DocumentContainer();
             this.documentTabStrip2 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
+            this.toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            this.slabRow = new Quartz.XP.Controls.Slab();
             this.splitPanel2 = new Telerik.WinControls.UI.SplitPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.qrid = new Quartz.XP.Controls.Qrid();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.rack = new Quartz.XP.Controls.Rack();
+            this.judge = new Quartz.XP.Controls.Judge();
             this.splitPanel3 = new Telerik.WinControls.UI.SplitPanel();
             this.radDock2 = new Telerik.WinControls.UI.Docking.RadDock();
+            this.toolWindow3 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            this.slabColumn = new Quartz.XP.Controls.Slab();
             this.documentContainer2 = new Telerik.WinControls.UI.Docking.DocumentContainer();
             this.documentTabStrip3 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             this.object_59b0142b_3fff_4375_9db7_bd498689cf89 = new Telerik.WinControls.RootRadElement();
@@ -62,6 +71,7 @@
             this.radMenuItem4 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem6 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem7 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem8 = new Telerik.WinControls.UI.RadMenuItem();
             this.documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             this.documentWindow2 = new Telerik.WinControls.UI.Docking.DocumentWindow();
             this.radMenuItem2 = new Telerik.WinControls.UI.RadMenuItem();
@@ -69,16 +79,6 @@
             this.radMenuItem3 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem1 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenu1 = new Telerik.WinControls.UI.RadMenu();
-            this.radMenuItem8 = new Telerik.WinControls.UI.RadMenuItem();
-            this.toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
-            this.slabRow = new Quartz.XP.Controls.Slab();
-            this.toolWindow2 = new Telerik.WinControls.UI.Docking.ToolWindow();
-            this.audition1 = new Quartz.XP.Controls.Audition();
-            this.qrid = new Quartz.XP.Controls.Qrid();
-            this.rack = new Quartz.XP.Controls.Rack();
-            this.judge1 = new Quartz.XP.Controls.Judge();
-            this.toolWindow3 = new Telerik.WinControls.UI.Docking.ToolWindow();
-            this.slabColumn = new Quartz.XP.Controls.Slab();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radBindingNavigator1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
@@ -88,10 +88,12 @@
             this.splitPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radDock1)).BeginInit();
             this.radDock1.SuspendLayout();
+            this.toolWindow2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).BeginInit();
             this.documentContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip2)).BeginInit();
             this.documentTabStrip2.SuspendLayout();
+            this.toolWindow1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitPanel2)).BeginInit();
             this.splitPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -103,6 +105,7 @@
             this.splitPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radDock2)).BeginInit();
             this.radDock2.SuspendLayout();
+            this.toolWindow3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer2)).BeginInit();
             this.documentContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip3)).BeginInit();
@@ -111,9 +114,6 @@
             this.documentTabStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).BeginInit();
             this.radMenu1.SuspendLayout();
-            this.toolWindow1.SuspendLayout();
-            this.toolWindow2.SuspendLayout();
-            this.toolWindow3.SuspendLayout();
             this.SuspendLayout();
             // 
             // radStatusStrip1
@@ -287,7 +287,7 @@
             // 
             // radDock1
             // 
-            this.radDock1.ActiveWindow = this.toolWindow1;
+            this.radDock1.ActiveWindow = this.toolWindow2;
             this.radDock1.CausesValidation = false;
             this.radDock1.Controls.Add(this.documentContainer1);
             this.radDock1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -304,6 +304,26 @@
             this.radDock1.TabIndex = 1;
             this.radDock1.TabStop = false;
             this.radDock1.Text = "radDock1";
+            // 
+            // toolWindow2
+            // 
+            this.toolWindow2.Caption = null;
+            this.toolWindow2.Controls.Add(this.audition);
+            this.toolWindow2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.toolWindow2.Location = new System.Drawing.Point(6, 29);
+            this.toolWindow2.Name = "toolWindow2";
+            this.toolWindow2.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
+            this.toolWindow2.Size = new System.Drawing.Size(506, 829);
+            this.toolWindow2.Text = "Audition";
+            // 
+            // audition
+            // 
+            this.audition.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.audition.Idol = null;
+            this.audition.Location = new System.Drawing.Point(0, 0);
+            this.audition.Name = "audition";
+            this.audition.Size = new System.Drawing.Size(506, 829);
+            this.audition.TabIndex = 0;
             // 
             // documentContainer1
             // 
@@ -328,10 +348,30 @@
             // 
             // 
             this.documentTabStrip2.RootElement.MinSize = new System.Drawing.Size(0, 0);
-            this.documentTabStrip2.SelectedIndex = 0;
+            this.documentTabStrip2.SelectedIndex = 1;
             this.documentTabStrip2.Size = new System.Drawing.Size(518, 864);
             this.documentTabStrip2.TabIndex = 0;
             this.documentTabStrip2.TabStop = false;
+            // 
+            // toolWindow1
+            // 
+            this.toolWindow1.Caption = null;
+            this.toolWindow1.Controls.Add(this.slabRow);
+            this.toolWindow1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.toolWindow1.Location = new System.Drawing.Point(6, 31);
+            this.toolWindow1.Name = "toolWindow1";
+            this.toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
+            this.toolWindow1.Size = new System.Drawing.Size(506, 827);
+            this.toolWindow1.Text = "Row";
+            // 
+            // slabRow
+            // 
+            this.slabRow.AutoSize = true;
+            this.slabRow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.slabRow.Location = new System.Drawing.Point(0, 0);
+            this.slabRow.Name = "slabRow";
+            this.slabRow.Size = new System.Drawing.Size(506, 827);
+            this.slabRow.TabIndex = 0;
             // 
             // splitPanel2
             // 
@@ -365,15 +405,39 @@
             this.splitContainer1.SplitterDistance = 372;
             this.splitContainer1.TabIndex = 0;
             // 
+            // qrid
+            // 
+            this.qrid.Location = new System.Drawing.Point(5, 6);
+            this.qrid.Name = "qrid";
+            this.qrid.Size = new System.Drawing.Size(528, 359);
+            this.qrid.TabIndex = 0;
+            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.rack);
-            this.flowLayoutPanel2.Controls.Add(this.judge1);
+            this.flowLayoutPanel2.Controls.Add(this.judge);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(528, 498);
             this.flowLayoutPanel2.TabIndex = 2;
+            // 
+            // rack
+            // 
+            this.rack.Candidate = null;
+            this.rack.Location = new System.Drawing.Point(3, 3);
+            this.rack.Name = "rack";
+            this.rack.Size = new System.Drawing.Size(517, 31);
+            this.rack.TabIndex = 0;
+            // 
+            // judge
+            // 
+            this.judge.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.judge.Idol = null;
+            this.judge.Location = new System.Drawing.Point(3, 40);
+            this.judge.Name = "judge";
+            this.judge.Size = new System.Drawing.Size(517, 460);
+            this.judge.TabIndex = 1;
             // 
             // splitPanel3
             // 
@@ -407,6 +471,26 @@
             this.radDock2.TabIndex = 0;
             this.radDock2.TabStop = false;
             this.radDock2.Text = "radDock2";
+            // 
+            // toolWindow3
+            // 
+            this.toolWindow3.Caption = null;
+            this.toolWindow3.Controls.Add(this.slabColumn);
+            this.toolWindow3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.toolWindow3.Location = new System.Drawing.Point(6, 29);
+            this.toolWindow3.Name = "toolWindow3";
+            this.toolWindow3.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
+            this.toolWindow3.Size = new System.Drawing.Size(506, 829);
+            this.toolWindow3.Text = "Column";
+            // 
+            // slabColumn
+            // 
+            this.slabColumn.AutoSize = true;
+            this.slabColumn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.slabColumn.Location = new System.Drawing.Point(0, 0);
+            this.slabColumn.Name = "slabColumn";
+            this.slabColumn.Size = new System.Drawing.Size(506, 829);
+            this.slabColumn.TabIndex = 0;
             // 
             // documentContainer2
             // 
@@ -471,6 +555,13 @@
             this.radMenuItem7.Name = "radMenuItem7";
             this.radMenuItem7.Text = "P&urge";
             this.radMenuItem7.Click += new System.EventHandler(this.radMenuItem7_Click);
+            // 
+            // radMenuItem8
+            // 
+            this.radMenuItem8.AccessibleDescription = "E&xport";
+            this.radMenuItem8.AccessibleName = "E&xport";
+            this.radMenuItem8.Name = "radMenuItem8";
+            this.radMenuItem8.Text = "E&xport";
             // 
             // documentTabStrip1
             // 
@@ -540,95 +631,6 @@
             this.radMenu1.Size = new System.Drawing.Size(1592, 20);
             this.radMenu1.TabIndex = 4;
             // 
-            // radMenuItem8
-            // 
-            this.radMenuItem8.AccessibleDescription = "E&xport";
-            this.radMenuItem8.AccessibleName = "E&xport";
-            this.radMenuItem8.Name = "radMenuItem8";
-            this.radMenuItem8.Text = "E&xport";
-            // 
-            // toolWindow1
-            // 
-            this.toolWindow1.Caption = null;
-            this.toolWindow1.Controls.Add(this.slabRow);
-            this.toolWindow1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.toolWindow1.Location = new System.Drawing.Point(6, 31);
-            this.toolWindow1.Name = "toolWindow1";
-            this.toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            this.toolWindow1.Size = new System.Drawing.Size(506, 827);
-            this.toolWindow1.Text = "Row";
-            // 
-            // slabRow
-            // 
-            this.slabRow.AutoSize = true;
-            this.slabRow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.slabRow.Location = new System.Drawing.Point(0, 0);
-            this.slabRow.Name = "slabRow";
-            this.slabRow.Size = new System.Drawing.Size(506, 827);
-            this.slabRow.TabIndex = 0;
-            // 
-            // toolWindow2
-            // 
-            this.toolWindow2.Caption = null;
-            this.toolWindow2.Controls.Add(this.audition1);
-            this.toolWindow2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.toolWindow2.Location = new System.Drawing.Point(6, 31);
-            this.toolWindow2.Name = "toolWindow2";
-            this.toolWindow2.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            this.toolWindow2.Size = new System.Drawing.Size(506, 827);
-            this.toolWindow2.Text = "Audition";
-            // 
-            // audition1
-            // 
-            this.audition1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.audition1.Location = new System.Drawing.Point(0, 0);
-            this.audition1.Name = "audition1";
-            this.audition1.Size = new System.Drawing.Size(506, 827);
-            this.audition1.TabIndex = 0;
-            // 
-            // qrid
-            // 
-            this.qrid.Location = new System.Drawing.Point(5, 6);
-            this.qrid.Name = "qrid";
-            this.qrid.Size = new System.Drawing.Size(528, 359);
-            this.qrid.TabIndex = 0;
-            // 
-            // rack
-            // 
-            this.rack.Candidate = null;
-            this.rack.Location = new System.Drawing.Point(3, 3);
-            this.rack.Name = "rack";
-            this.rack.Size = new System.Drawing.Size(517, 31);
-            this.rack.TabIndex = 0;
-            // 
-            // judge1
-            // 
-            this.judge1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.judge1.Location = new System.Drawing.Point(3, 40);
-            this.judge1.Name = "judge1";
-            this.judge1.Size = new System.Drawing.Size(517, 400);
-            this.judge1.TabIndex = 1;
-            // 
-            // toolWindow3
-            // 
-            this.toolWindow3.Caption = null;
-            this.toolWindow3.Controls.Add(this.slabColumn);
-            this.toolWindow3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.toolWindow3.Location = new System.Drawing.Point(6, 31);
-            this.toolWindow3.Name = "toolWindow3";
-            this.toolWindow3.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            this.toolWindow3.Size = new System.Drawing.Size(506, 827);
-            this.toolWindow3.Text = "Column";
-            // 
-            // slabColumn
-            // 
-            this.slabColumn.AutoSize = true;
-            this.slabColumn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.slabColumn.Location = new System.Drawing.Point(0, 0);
-            this.slabColumn.Name = "slabColumn";
-            this.slabColumn.Size = new System.Drawing.Size(506, 827);
-            this.slabColumn.TabIndex = 0;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -648,10 +650,13 @@
             this.splitPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radDock1)).EndInit();
             this.radDock1.ResumeLayout(false);
+            this.toolWindow2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).EndInit();
             this.documentContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip2)).EndInit();
             this.documentTabStrip2.ResumeLayout(false);
+            this.toolWindow1.ResumeLayout(false);
+            this.toolWindow1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitPanel2)).EndInit();
             this.splitPanel2.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -663,6 +668,8 @@
             this.splitPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radDock2)).EndInit();
             this.radDock2.ResumeLayout(false);
+            this.toolWindow3.ResumeLayout(false);
+            this.toolWindow3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer2)).EndInit();
             this.documentContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip3)).EndInit();
@@ -672,11 +679,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).EndInit();
             this.radMenu1.ResumeLayout(false);
             this.radMenu1.PerformLayout();
-            this.toolWindow1.ResumeLayout(false);
-            this.toolWindow1.PerformLayout();
-            this.toolWindow2.ResumeLayout(false);
-            this.toolWindow3.ResumeLayout(false);
-            this.toolWindow3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -722,9 +724,8 @@
         private Telerik.WinControls.UI.Docking.DocumentTabStrip documentTabStrip3;
         private Controls.Slab slabRow;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private Controls.Judge judge1;
+        private Controls.Judge judge;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem4;
-        private Controls.Audition audition1;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem2;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem5;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem3;
@@ -733,6 +734,7 @@
         private Telerik.WinControls.UI.RadMenuItem radMenuItem6;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem7;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem8;
+        private Controls.Audition audition;
 
     }
 }

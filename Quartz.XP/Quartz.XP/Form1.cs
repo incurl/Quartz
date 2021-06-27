@@ -14,6 +14,7 @@ using Newtonsoft.Json.Linq;
 using Quartz.XP.Models;
 using System.Linq.Expressions;
 using Telerik.WinControls.UI;
+using Quartz.XP.Controls;
 
 namespace Quartz.XP
 {
@@ -28,8 +29,8 @@ namespace Quartz.XP
         {
             InitializeComponent();
             openFileDialog1 = new OpenFileDialog();
-            InitializeDb();
             WireUp();
+            InitializeDb();
         }
 
         public event EventHandler<GridViewCellEventArgs> UpdateQrid;
@@ -45,6 +46,11 @@ namespace Quartz.XP
             this.qrid.TileMeDown += this.qrid_TileMeDown;
             this.UpdateQrid += this.qrid.Update_Qrid;
             this.UpdateRack += this.rack.Update_Rack;
+            this.audition.BundleSwitch += this.audition_bundleSwitch;
+            this.judge.RevealQrid += this.qrid.Reveal_Puzzle;
+            this.judge.ResetQrid += this.qrid.Reset_Puzzle;
+            this.audition.SelectPuzzle += this.Select_Puzzle;
+
         }
 
         private void InitializeDb()
@@ -111,7 +117,11 @@ namespace Quartz.XP
                 var col = db.GetCollection<Bundle>("bundle");
                 bundles = col.FindAll().ToList<Bundle>();
             }
-            this.audition1.BindingSourceBundle.DataSource = bundles;
+            this.audition.BindingSourceBundle.DataSource = bundles;
+            if (bundles.Count != 0)
+            {
+                this.audition.SetUpCombo();
+            }
         }
 
         private OpenFileDialog openFileDialog1;
@@ -156,7 +166,18 @@ namespace Quartz.XP
                 }
                 col.EnsureIndex<int>(x => x.id);
                 col.EnsureIndex<bool>(x => x.Solved);
+                col.EnsureIndex<bool>(x => x.Starred);
+                col.EnsureIndex<bool>(x => x.Binned);
             }
+        }
+
+        public void Select_Puzzle(object sender, SelectPuzzleEventArgs e)
+        {
+            Puzzle puzzle = e.Puzzle;
+            this.rack.roulette_tiles(puzzle);
+            this.qrid.SetBoard(puzzle);
+            this.slabColumn.SetPoems(puzzle.Poems.Take<Poem>(3));
+            this.slabRow.SetPoems(puzzle.Poems.Skip<Poem>(3).Take<Poem>(3));
         }
 
         private void bindingSource_CurrentChanged(object sender, EventArgs e)
@@ -254,5 +275,28 @@ namespace Quartz.XP
             }
         }
 
+        private void audition_bundleSwitch(object sender, BundleSwitchEventArgs e)
+        {
+            int id = e.BundleId;
+            using (var db = new LiteDatabase(@".\Data\Quartz.db"))
+            {
+                var col = db.GetCollection<Bundle>("bundle");
+                Bundle bundle = col.FindById(id);
+                Badge[] badges = bundle.assembly;
+                int[] pids = badges.Select(x => x.p).ToArray();
+                var col_pzl = db.GetCollection<Puzzle>("puzzle");
+                List<Puzzle> puzzles=new List<Puzzle>();
+                foreach(int pid in pids)
+                {
+                    puzzles.Add(col_pzl.FindById(pid));
+                }
+                bundle.Pool = puzzles.ToArray();
+                this.judge.Idol = bundle;
+                this.audition.Idol = bundle;
+                //this.bindingSource.DataSource = puzzles;
+            }
+        }
+
     }
+
 }
