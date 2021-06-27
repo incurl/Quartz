@@ -140,6 +140,10 @@ namespace Quartz.XP.Controls
                 puzzle.Binned = !puzzle.Binned;
                 this.waitingGrid.DataSource=null;
                 this.waitingGrid.DataSource = new ArrayDataView(idol.Waiting());
+                foreach (GridViewDataColumn col in this.waitingGrid.Columns)
+                {
+                    col.Width = 45;
+                }
                 this.binGrid.DataSource = null;
                 this.binGrid.DataSource = new ArrayDataView(idol.Binned());
             }
