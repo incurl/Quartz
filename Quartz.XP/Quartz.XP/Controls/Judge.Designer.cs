@@ -30,11 +30,6 @@
         {
             this.propertyGridBundle = new System.Windows.Forms.PropertyGrid();
             this.radDock1 = new Telerik.WinControls.UI.Docking.RadDock();
-            this.documentContainer1 = new Telerik.WinControls.UI.Docking.DocumentContainer();
-            this.toolTabStrip3 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
-            this.toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
-            this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
-            this.toolTabStrip2 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.toolWindow2 = new Telerik.WinControls.UI.Docking.ToolWindow();
             this.buttonReset = new System.Windows.Forms.Button();
             this.buttonReveal = new System.Windows.Forms.Button();
@@ -42,17 +37,22 @@
             this.radRating1 = new Telerik.WinControls.UI.RadRating();
             this.ratingStarVisualElement1 = new Telerik.WinControls.UI.RatingStarVisualElement();
             this.scale1 = new Quartz.XP.Controls.Scale();
+            this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
+            this.toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            this.documentContainer1 = new Telerik.WinControls.UI.Docking.DocumentContainer();
+            this.toolTabStrip2 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
+            this.toolTabStrip3 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             ((System.ComponentModel.ISupportInitialize)(this.radDock1)).BeginInit();
             this.radDock1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip3)).BeginInit();
-            this.toolWindow1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).BeginInit();
-            this.toolTabStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip2)).BeginInit();
-            this.toolTabStrip2.SuspendLayout();
             this.toolWindow2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radRating1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).BeginInit();
+            this.toolTabStrip1.SuspendLayout();
+            this.toolWindow1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip2)).BeginInit();
+            this.toolTabStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip3)).BeginInit();
             this.SuspendLayout();
             // 
             // propertyGridBundle
@@ -62,10 +62,11 @@
             this.propertyGridBundle.Name = "propertyGridBundle";
             this.propertyGridBundle.Size = new System.Drawing.Size(219, 414);
             this.propertyGridBundle.TabIndex = 0;
+            this.propertyGridBundle.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.propertyGridBundle_PropertyValueChanged);
             // 
             // radDock1
             // 
-            this.radDock1.ActiveWindow = this.toolWindow2;
+            this.radDock1.ActiveWindow = this.toolWindow1;
             this.radDock1.CausesValidation = false;
             this.radDock1.Controls.Add(this.toolTabStrip1);
             this.radDock1.Controls.Add(this.documentContainer1);
@@ -83,77 +84,6 @@
             this.radDock1.TabIndex = 3;
             this.radDock1.TabStop = false;
             this.radDock1.Text = "radDock1";
-            // 
-            // documentContainer1
-            // 
-            this.documentContainer1.Name = "documentContainer1";
-            // 
-            // 
-            // 
-            this.documentContainer1.RootElement.MinSize = new System.Drawing.Size(0, 0);
-            this.documentContainer1.SizeInfo.AbsoluteSize = new System.Drawing.Size(0, 200);
-            this.documentContainer1.SizeInfo.SizeMode = Telerik.WinControls.UI.Docking.SplitPanelSizeMode.Fill;
-            this.documentContainer1.SizeInfo.SplitterCorrection = new System.Drawing.Size(-129, 0);
-            this.documentContainer1.TabIndex = 2;
-            // 
-            // toolTabStrip3
-            // 
-            this.toolTabStrip3.CanUpdateChildIndex = true;
-            this.toolTabStrip3.Location = new System.Drawing.Point(0, 0);
-            this.toolTabStrip3.Name = "toolTabStrip3";
-            // 
-            // 
-            // 
-            this.toolTabStrip3.RootElement.MinSize = new System.Drawing.Size(25, 25);
-            this.toolTabStrip3.Size = new System.Drawing.Size(200, 200);
-            this.toolTabStrip3.TabIndex = 0;
-            this.toolTabStrip3.TabStop = false;
-            // 
-            // toolWindow1
-            // 
-            this.toolWindow1.Caption = null;
-            this.toolWindow1.Controls.Add(this.propertyGridBundle);
-            this.toolWindow1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolWindow1.Location = new System.Drawing.Point(1, 24);
-            this.toolWindow1.Name = "toolWindow1";
-            this.toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            this.toolWindow1.Size = new System.Drawing.Size(219, 414);
-            this.toolWindow1.Text = "Bundle";
-            // 
-            // toolTabStrip1
-            // 
-            this.toolTabStrip1.CanUpdateChildIndex = true;
-            this.toolTabStrip1.CausesValidation = false;
-            this.toolTabStrip1.Controls.Add(this.toolWindow1);
-            this.toolTabStrip1.Location = new System.Drawing.Point(5, 5);
-            this.toolTabStrip1.Name = "toolTabStrip1";
-            // 
-            // 
-            // 
-            this.toolTabStrip1.RootElement.MinSize = new System.Drawing.Size(0, 0);
-            this.toolTabStrip1.SelectedIndex = 0;
-            this.toolTabStrip1.Size = new System.Drawing.Size(221, 440);
-            this.toolTabStrip1.SizeInfo.AbsoluteSize = new System.Drawing.Size(221, 200);
-            this.toolTabStrip1.SizeInfo.SplitterCorrection = new System.Drawing.Size(21, 0);
-            this.toolTabStrip1.TabIndex = 0;
-            this.toolTabStrip1.TabStop = false;
-            // 
-            // toolTabStrip2
-            // 
-            this.toolTabStrip2.CanUpdateChildIndex = true;
-            this.toolTabStrip2.Controls.Add(this.toolWindow2);
-            this.toolTabStrip2.Location = new System.Drawing.Point(234, 5);
-            this.toolTabStrip2.Name = "toolTabStrip2";
-            // 
-            // 
-            // 
-            this.toolTabStrip2.RootElement.MinSize = new System.Drawing.Size(0, 0);
-            this.toolTabStrip2.SelectedIndex = 0;
-            this.toolTabStrip2.Size = new System.Drawing.Size(308, 440);
-            this.toolTabStrip2.SizeInfo.AbsoluteSize = new System.Drawing.Size(308, 200);
-            this.toolTabStrip2.SizeInfo.SplitterCorrection = new System.Drawing.Size(108, 0);
-            this.toolTabStrip2.TabIndex = 3;
-            this.toolTabStrip2.TabStop = false;
             // 
             // toolWindow2
             // 
@@ -224,6 +154,77 @@
             this.scale1.Size = new System.Drawing.Size(161, 46);
             this.scale1.TabIndex = 0;
             // 
+            // toolTabStrip1
+            // 
+            this.toolTabStrip1.CanUpdateChildIndex = true;
+            this.toolTabStrip1.CausesValidation = false;
+            this.toolTabStrip1.Controls.Add(this.toolWindow1);
+            this.toolTabStrip1.Location = new System.Drawing.Point(5, 5);
+            this.toolTabStrip1.Name = "toolTabStrip1";
+            // 
+            // 
+            // 
+            this.toolTabStrip1.RootElement.MinSize = new System.Drawing.Size(0, 0);
+            this.toolTabStrip1.SelectedIndex = 0;
+            this.toolTabStrip1.Size = new System.Drawing.Size(221, 440);
+            this.toolTabStrip1.SizeInfo.AbsoluteSize = new System.Drawing.Size(221, 200);
+            this.toolTabStrip1.SizeInfo.SplitterCorrection = new System.Drawing.Size(21, 0);
+            this.toolTabStrip1.TabIndex = 0;
+            this.toolTabStrip1.TabStop = false;
+            // 
+            // toolWindow1
+            // 
+            this.toolWindow1.Caption = null;
+            this.toolWindow1.Controls.Add(this.propertyGridBundle);
+            this.toolWindow1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolWindow1.Location = new System.Drawing.Point(1, 24);
+            this.toolWindow1.Name = "toolWindow1";
+            this.toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
+            this.toolWindow1.Size = new System.Drawing.Size(219, 414);
+            this.toolWindow1.Text = "Bundle";
+            // 
+            // documentContainer1
+            // 
+            this.documentContainer1.Name = "documentContainer1";
+            // 
+            // 
+            // 
+            this.documentContainer1.RootElement.MinSize = new System.Drawing.Size(0, 0);
+            this.documentContainer1.SizeInfo.AbsoluteSize = new System.Drawing.Size(0, 200);
+            this.documentContainer1.SizeInfo.SizeMode = Telerik.WinControls.UI.Docking.SplitPanelSizeMode.Fill;
+            this.documentContainer1.SizeInfo.SplitterCorrection = new System.Drawing.Size(-129, 0);
+            this.documentContainer1.TabIndex = 2;
+            // 
+            // toolTabStrip2
+            // 
+            this.toolTabStrip2.CanUpdateChildIndex = true;
+            this.toolTabStrip2.Controls.Add(this.toolWindow2);
+            this.toolTabStrip2.Location = new System.Drawing.Point(234, 5);
+            this.toolTabStrip2.Name = "toolTabStrip2";
+            // 
+            // 
+            // 
+            this.toolTabStrip2.RootElement.MinSize = new System.Drawing.Size(0, 0);
+            this.toolTabStrip2.SelectedIndex = 0;
+            this.toolTabStrip2.Size = new System.Drawing.Size(308, 440);
+            this.toolTabStrip2.SizeInfo.AbsoluteSize = new System.Drawing.Size(308, 200);
+            this.toolTabStrip2.SizeInfo.SplitterCorrection = new System.Drawing.Size(108, 0);
+            this.toolTabStrip2.TabIndex = 3;
+            this.toolTabStrip2.TabStop = false;
+            // 
+            // toolTabStrip3
+            // 
+            this.toolTabStrip3.CanUpdateChildIndex = true;
+            this.toolTabStrip3.Location = new System.Drawing.Point(0, 0);
+            this.toolTabStrip3.Name = "toolTabStrip3";
+            // 
+            // 
+            // 
+            this.toolTabStrip3.RootElement.MinSize = new System.Drawing.Size(25, 25);
+            this.toolTabStrip3.Size = new System.Drawing.Size(200, 200);
+            this.toolTabStrip3.TabIndex = 0;
+            this.toolTabStrip3.TabStop = false;
+            // 
             // Judge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -233,16 +234,16 @@
             this.Size = new System.Drawing.Size(547, 450);
             ((System.ComponentModel.ISupportInitialize)(this.radDock1)).EndInit();
             this.radDock1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip3)).EndInit();
-            this.toolWindow1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).EndInit();
-            this.toolTabStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip2)).EndInit();
-            this.toolTabStrip2.ResumeLayout(false);
             this.toolWindow2.ResumeLayout(false);
             this.toolWindow2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radRating1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).EndInit();
+            this.toolTabStrip1.ResumeLayout(false);
+            this.toolWindow1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip2)).EndInit();
+            this.toolTabStrip2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip3)).EndInit();
             this.ResumeLayout(false);
 
         }

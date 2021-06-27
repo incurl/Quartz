@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Quartz.XP.Models;
+using LiteDB;
 
 namespace Quartz.XP.Controls
 {
@@ -33,6 +34,7 @@ namespace Quartz.XP.Controls
 
         public event EventHandler<EventArgs> RevealQrid;
         public event EventHandler<EventArgs> ResetQrid;
+        public event EventHandler<BundleChangedEventArgs> BundlePropertyChanged;
 
         protected virtual void OnRevealQrid(EventArgs e)
         {
@@ -52,6 +54,15 @@ namespace Quartz.XP.Controls
             }
         }
 
+        protected virtual void OnBundleProperyChanged(BundleChangedEventArgs e)
+        {
+            EventHandler<BundleChangedEventArgs> handler = BundlePropertyChanged;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
         private void buttonReset_Click(object sender, EventArgs e)
         {
             OnResetQrid(e);
@@ -62,5 +73,27 @@ namespace Quartz.XP.Controls
             OnRevealQrid(e);
         }
 
+        private void propertyGridBundle_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
+        {
+            using (var db = new LiteDatabase(@".\Data\Quartz.db"))
+            {
+                string value = (string)(e.ChangedItem.Value);
+                this.Idol.Moniker = value;
+                var col = db.GetCollection<Bundle>("bundle");
+                col.Update(this.Idol);
+            }
+            OnBundleProperyChanged(new BundleChangedEventArgs(this.Idol));
+        }
+
     }
+
+    public class BundleChangedEventArgs : EventArgs
+    {
+        public BundleChangedEventArgs(Bundle b)
+        {
+            Bundle = b;
+        }
+        public Bundle Bundle { get; set; }
+    }
+
 }

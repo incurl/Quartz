@@ -145,6 +145,19 @@ namespace Quartz.XP.Controls
             }
         }
 
+        public void BundleProperyChanged(object sender, BundleChangedEventArgs e)
+        {
+            Bundle b= e.Bundle;
+            List<Bundle> bundles = (List<Bundle>)(this.BindingSourceBundle.DataSource);
+            Bundle bundle=bundles.First(x => x.id == b.id);
+            var index = bundles.IndexOf(bundle);
+            if (index != -1)
+            {
+                bundles[index] = b;
+            }
+            this.BindingSourceBundle.ResetBindings(false);
+        }
+
     }
 
     public class BundleSwitchEventArgs : EventArgs
