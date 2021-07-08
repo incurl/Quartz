@@ -10,9 +10,8 @@ namespace Quartz.XP.Models
     public class Bundle
     {
         public int id { get; set; }
-        public string[] exclusive {get; set;}
         public string Moniker { get; set; }
-        public Badge[] assembly {get; set;}
+        public Badge[] badges {get; set;}
         [BsonIgnore]
         [JsonIgnore]
         public List<Puzzle> Pool { get; set; }
@@ -30,8 +29,7 @@ namespace Quartz.XP.Models
             int index = 0;
             foreach (Puzzle puzzle in puzzles)
             {
-                Badge badge = assembly[index];
-                badge.eye = exclusive[index];
+                Badge badge = badges[index];
                 puzzle.Badge=badge;
                 index++;
             }

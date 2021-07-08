@@ -9,11 +9,9 @@ namespace Quartz.XP.Models
 {
     public class Badge
     {
-        public int e { get; set; }
+        public int s { get; set; }
         public int p { get; set; }
-        [BsonIgnore]
-        [JsonIgnore]
-        public string eye { get; set; }
+        public string b { get; set; }
 
     }
 }

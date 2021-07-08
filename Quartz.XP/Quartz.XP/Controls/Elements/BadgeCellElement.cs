@@ -29,7 +29,7 @@ namespace Quartz.XP.Controls.Elements
         {
             if (this.Value != null && this.Value != DBNull.Value)
             {
-                this.lightVisualElement.Text = ((Puzzle)value).Badge.eye;
+                this.lightVisualElement.Text = ((Puzzle)value).Badge.b;
             }
         }
 

@@ -273,7 +273,7 @@ namespace Quartz.XP
             {
                 var col = db.GetCollection<Bundle>("bundle");
                 Bundle bundle = col.FindById(id);
-                Badge[] badges = bundle.assembly;
+                Badge[] badges = bundle.badges;
                 int[] pids = badges.Select(x => x.p).ToArray();
                 var col_pzl = db.GetCollection<Puzzle>("puzzle");
                 List<Puzzle> puzzles=new List<Puzzle>();
