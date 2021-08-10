@@ -34,6 +34,7 @@
             this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.documentContainer1 = new Telerik.WinControls.UI.Docking.DocumentContainer();
             this.toolTabStrip2 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
+            this.toolTabStrip3 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.toolWindow2 = new Telerik.WinControls.UI.Docking.ToolWindow();
             this.buttonReset = new System.Windows.Forms.Button();
             this.buttonReveal = new System.Windows.Forms.Button();
@@ -41,7 +42,6 @@
             this.radRating1 = new Telerik.WinControls.UI.RadRating();
             this.ratingStarVisualElement1 = new Telerik.WinControls.UI.RatingStarVisualElement();
             this.scale1 = new Quartz.XP.Controls.Scale();
-            this.toolTabStrip3 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             ((System.ComponentModel.ISupportInitialize)(this.radDock1)).BeginInit();
             this.radDock1.SuspendLayout();
             this.toolWindow1.SuspendLayout();
@@ -50,9 +50,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip2)).BeginInit();
             this.toolTabStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip3)).BeginInit();
             this.toolWindow2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radRating1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip3)).BeginInit();
             this.SuspendLayout();
             // 
             // propertyGridBundle
@@ -143,6 +143,19 @@
             this.toolTabStrip2.TabIndex = 3;
             this.toolTabStrip2.TabStop = false;
             // 
+            // toolTabStrip3
+            // 
+            this.toolTabStrip3.CanUpdateChildIndex = true;
+            this.toolTabStrip3.Location = new System.Drawing.Point(0, 0);
+            this.toolTabStrip3.Name = "toolTabStrip3";
+            // 
+            // 
+            // 
+            this.toolTabStrip3.RootElement.MinSize = new System.Drawing.Size(25, 25);
+            this.toolTabStrip3.Size = new System.Drawing.Size(200, 200);
+            this.toolTabStrip3.TabIndex = 0;
+            this.toolTabStrip3.TabStop = false;
+            // 
             // toolWindow2
             // 
             this.toolWindow2.Caption = null;
@@ -196,10 +209,11 @@
             this.ratingStarVisualElement1});
             this.radRating1.Location = new System.Drawing.Point(130, 183);
             this.radRating1.Name = "radRating1";
+            this.radRating1.ShowItemToolTips = false;
             this.radRating1.Size = new System.Drawing.Size(56, 56);
             this.radRating1.TabIndex = 1;
             this.radRating1.Text = "radRating1";
-            this.radRating1.Click += new System.EventHandler(this.radRating1_Click);
+            this.radRating1.ValueChanged += new System.EventHandler(this.radRating1_ValueChanged);
             // 
             // ratingStarVisualElement1
             // 
@@ -212,19 +226,6 @@
             this.scale1.Name = "scale1";
             this.scale1.Size = new System.Drawing.Size(161, 46);
             this.scale1.TabIndex = 0;
-            // 
-            // toolTabStrip3
-            // 
-            this.toolTabStrip3.CanUpdateChildIndex = true;
-            this.toolTabStrip3.Location = new System.Drawing.Point(0, 0);
-            this.toolTabStrip3.Name = "toolTabStrip3";
-            // 
-            // 
-            // 
-            this.toolTabStrip3.RootElement.MinSize = new System.Drawing.Size(25, 25);
-            this.toolTabStrip3.Size = new System.Drawing.Size(200, 200);
-            this.toolTabStrip3.TabIndex = 0;
-            this.toolTabStrip3.TabStop = false;
             // 
             // Judge
             // 
@@ -241,10 +242,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip2)).EndInit();
             this.toolTabStrip2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip3)).EndInit();
             this.toolWindow2.ResumeLayout(false);
             this.toolWindow2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radRating1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip3)).EndInit();
             this.ResumeLayout(false);
 
         }

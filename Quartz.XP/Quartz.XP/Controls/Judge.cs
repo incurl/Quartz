@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Quartz.XP.Models;
 using LiteDB;
+using Telerik.WinControls.UI;
 
 namespace Quartz.XP.Controls
 {
@@ -23,6 +24,9 @@ namespace Quartz.XP.Controls
         {
             this.scale1.PuzzleDifficultyChanged += this.PuzzleDifficultyChanged;
             this.scale1.Enabled = false;
+            this.radRating1.Enabled = false;
+            this.buttonReset.Enabled = false;
+            this.buttonReveal.Enabled = false;
         }
 
         private Bundle idol;
@@ -49,9 +53,15 @@ namespace Quartz.XP.Controls
             set
             {
                 puzzle = value;
-                this.scale1.Enabled = true;
+                //this.scale1.Enabled = false;
                 this.scale1.Level = puzzle.Difficulty;
-            }
+                this.scale1.Enabled = true;
+                //this.radRating1.Enabled = false;
+                this.radRating1.Value = puzzle.Starred ? 100 : 0;
+                this.radRating1.Enabled = true;
+                this.buttonReveal.Enabled = true;
+                this.buttonReset.Enabled = true;
+            } 
         }
 
         public event EventHandler<EventArgs> RevealQrid;
@@ -124,12 +134,21 @@ namespace Quartz.XP.Controls
 
         public void PuzzleDifficultyChanged(object sender, ScaleChangedEventArgs e)
         {
-            this.Puzzle.Difficulty = e.Level;
-            OnPuzzlePropertyChanged(new PuzzlePropertyChangedEventArgs(this.Puzzle));
+            if (this.Puzzle.Difficulty != e.Level)
+            {
+                this.Puzzle.Difficulty = e.Level;
+                OnPuzzlePropertyChanged(new PuzzlePropertyChangedEventArgs(this.Puzzle));
+            }
         }
 
-        private void radRating1_Click(object sender, EventArgs e)
+        private void radRating1_ValueChanged(object sender, EventArgs e)
         {
+            bool starred = ((RadRating)sender).Value > 50;
+            if (this.puzzle.Starred != starred)
+            {
+                this.puzzle.Starred = starred;
+                OnPuzzlePropertyChanged(new PuzzlePropertyChangedEventArgs(this.puzzle));
+            }
 
         }
 

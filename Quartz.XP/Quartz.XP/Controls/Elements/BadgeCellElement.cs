@@ -12,7 +12,6 @@ namespace Quartz.XP.Controls.Elements
         public BadgeCellElement(GridViewColumn column, GridRowElement row)
             : base(column, row)
         {
-
         }
 
         private LightVisualElement lightVisualElement;
@@ -29,7 +28,8 @@ namespace Quartz.XP.Controls.Elements
         {
             if (this.Value != null && this.Value != DBNull.Value)
             {
-                this.lightVisualElement.Text = ((Puzzle)value).Badge.b;
+                Puzzle puzzle = (Puzzle)value;
+                this.lightVisualElement.Text = puzzle.Badge.b;
             }
         }
 

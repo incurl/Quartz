@@ -33,11 +33,21 @@ namespace Quartz.XP.Controls
             set
             {
                 level = value;
-                foreach (DictionaryEntry s in levels)
+                if (level == 0)
                 {
-                    if ((int)s.Value == value)
+                    foreach (DictionaryEntry s in levels)
                     {
-                        ((RadioButton)s.Key).Select();
+                        ((RadioButton)s.Key).Checked = false;
+                    }
+                }
+                else
+                {
+                    foreach (DictionaryEntry s in levels)
+                    {
+                        if ((int)s.Value == value)
+                        {
+                            ((RadioButton)s.Key).Checked = true;
+                        }
                     }
                 }
             }

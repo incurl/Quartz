@@ -68,11 +68,12 @@ namespace Quartz.XP.Controls
         {
             if (crystal.Contains(e.CellElement.ColumnIndex) && crystal.Contains(e.CellElement.RowIndex))
             {
-                e.CellElement.BackColor = Color.Aqua;
-                e.CellElement.AllowDrop = true;
-                e.CellElement.AllowDrag = true;
-                //e.CellElement.BorderColor = Color.AliceBlue;
-                //e.CellElement.BorderThickness = new Padding(10);
+                GridViewCellInfo cell=grid.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                cell.Style.CustomizeFill = true;
+                cell.Style.DrawFill = true;
+                cell.Style.BackColor = Color.AliceBlue;
+                //e.CellElement.AllowDrop = true;
+                //e.CellElement.AllowDrag = true;
             }
             else
             {

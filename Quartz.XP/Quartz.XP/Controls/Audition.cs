@@ -11,6 +11,7 @@ using Accord.Controls;
 using Telerik.WinControls.UI;
 using Quartz.XP.Controls.Elements;
 using LiteDB;
+using System.Drawing;
 
 namespace Quartz.XP.Controls
 {
@@ -22,9 +23,16 @@ namespace Quartz.XP.Controls
             WireUp();
         }
 
+        private Color[] colors = new Color[6];
         private void WireUp()
         {
             this.PuzzleBinnedChanged += this.PuzzlePropertyChanged;
+            colors[0] = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            colors[1] = Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(228)))), ((int)(((byte)(139)))));
+            colors[2] = Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(231)))), ((int)(((byte)(141)))));
+            colors[3] = Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(201)))), ((int)(((byte)(111)))));
+            colors[4] = Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(148)))), ((int)(((byte)(99)))));
+            colors[5] = Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(97)))), ((int)(((byte)(39)))));
         }
 
         public BindingSource BindingSourceBundle
@@ -65,6 +73,7 @@ namespace Quartz.XP.Controls
                     {
                         col.Width = 45;
                     }
+                    apply_difficulty_colors();
                 }
             }
         }
@@ -165,15 +174,57 @@ namespace Quartz.XP.Controls
             {
                 Puzzle puzzle = (Puzzle)v;
                 puzzle.Binned = !puzzle.Binned;
-                this.waitingGrid.DataSource=null;
-                this.waitingGrid.DataSource = new ArrayDataView(idol.Waiting());
-                foreach (GridViewDataColumn col in this.waitingGrid.Columns)
-                {
-                    col.Width = 45;
-                }
-                this.binGrid.DataSource = null;
-                this.binGrid.DataSource = new ArrayDataView(idol.Binned());
                 this.OnPuzzleBinnedChanged(new PuzzlePropertyChangedEventArgs(puzzle));
+            }
+        }
+
+        private void update_grids()
+        {
+            this.waitingGrid.DataSource = null;
+            this.waitingGrid.DataSource = new ArrayDataView(idol.Waiting());
+            foreach (GridViewDataColumn col in this.waitingGrid.Columns)
+            {
+                col.Width = 45;
+            }
+            this.binGrid.DataSource = null;
+            this.binGrid.DataSource = new ArrayDataView(idol.Binned());
+            foreach (GridViewDataColumn col in this.binGrid.Columns)
+            {
+                col.Width = 45;
+            }
+            apply_difficulty_colors();
+        }
+
+        private void apply_difficulty_colors()
+        {
+            RadGridView grid = this.waitingGrid;
+            for (int y = 0; y < grid.RowCount; y++)
+            {
+                for (int x = 0; x < grid.ColumnCount; x++)
+                {
+                    GridViewCellInfo cell=grid.Rows[y].Cells[x];
+                    if (cell.Value != null)
+                    {
+                        cell.Style.CustomizeFill = true;
+                        cell.Style.DrawFill = true;
+                        cell.Style.BackColor = colors[((Puzzle)cell.Value).Difficulty];
+                    }
+                }
+            }
+
+            grid = this.binGrid;
+            for (int y = 0; y < grid.RowCount; y++)
+            {
+                for (int x = 0; x < grid.ColumnCount; x++)
+                {
+                    GridViewCellInfo cell=grid.Rows[y].Cells[x];
+                    if (cell.Value != null)
+                    {
+                        cell.Style.CustomizeFill = true;
+                        cell.Style.DrawFill = true;
+                        cell.Style.BackColor = colors[((Puzzle)cell.Value).Difficulty];
+                    }
+                }
             }
         }
 
@@ -202,7 +253,7 @@ namespace Quartz.XP.Controls
                 puzzle.Binned = p.Binned;
                 col.Update(puzzle);
             }
-            
+            update_grids();
         }
 
     }
