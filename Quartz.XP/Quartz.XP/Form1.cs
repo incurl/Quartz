@@ -50,7 +50,9 @@ namespace Quartz.XP
             this.judge.RevealQrid += this.qrid.Reveal_Puzzle;
             this.judge.ResetQrid += this.qrid.Reset_Puzzle;
             this.audition.SelectPuzzle += this.Select_Puzzle;
+            this.audition.SelectPuzzle += this.judge.Select_Puzzle;
             this.judge.BundlePropertyChanged += this.audition.BundleProperyChanged;
+            this.judge.PuzzlePropertyChanged += this.audition.PuzzlePropertyChanged;
         }
 
         private void InitializeDb()

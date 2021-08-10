@@ -215,7 +215,17 @@ namespace Quartz.XP.Controls
 
         public void Reset_Puzzle(object sender, EventArgs e)
         {
-
+            for (int r = 4; r <7; r++){
+                for (int i = 4; i < 7; i++)
+                {
+                    GridViewRowInfo rowInfo = grid.Rows[r];
+                    GridViewColumn column = grid.Columns[i];
+                    if(((Cell)grid.Rows[r].Cells[i].Value).guess != null) {
+                        GridViewCellEventArgs ex = new GridViewCellEventArgs(rowInfo, column, null);
+                        OnTileMeDown(ex);
+                    }
+                }
+            }
         }
 
         public void Reveal_Puzzle(object sender, EventArgs e)

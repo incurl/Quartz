@@ -16,15 +16,35 @@ namespace Quartz.XP.Controls
         {
             InitializeComponent();
             levels = new Hashtable();
-            levels.Add(this.radioButton1,1);
-            levels.Add(this.radioButton2,2);
-            levels.Add(this.radioButton3,3);
-            levels.Add(this.radioButton4,4);
-            levels.Add(this.radioButton5,5);
+            levels.Add(this.radioButton1, 1);
+            levels.Add(this.radioButton2, 2);
+            levels.Add(this.radioButton3, 3);
+            levels.Add(this.radioButton4, 4);
+            levels.Add(this.radioButton5, 5);
         }
 
-        public int Level {get; set;}
+        private int level;
+        public int Level
+        {
+            get
+            {
+                return level;
+            }
+            set
+            {
+                level = value;
+                foreach (DictionaryEntry s in levels)
+                {
+                    if ((int)s.Value == value)
+                    {
+                        ((RadioButton)s.Key).Select();
+                    }
+                }
+            }
+        }
+        
         private Hashtable levels;
+        public event EventHandler<ScaleChangedEventArgs> PuzzleDifficultyChanged;
 
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
@@ -40,7 +60,29 @@ namespace Quartz.XP.Controls
             if (rb.Checked)
             {
                 this.Level = (int)levels[rb];
+                OnPuzzleDifficultyChanged(new ScaleChangedEventArgs(this.Level));
             }
         }
+
+        protected virtual void OnPuzzleDifficultyChanged(ScaleChangedEventArgs e)
+        {
+            EventHandler<ScaleChangedEventArgs> handler = PuzzleDifficultyChanged;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
     }
+
+    public class ScaleChangedEventArgs : EventArgs
+    {
+        public ScaleChangedEventArgs(int level)
+        {
+            Level = level;
+        }
+        public int Level { get; set; }
+
+    }
+
 }

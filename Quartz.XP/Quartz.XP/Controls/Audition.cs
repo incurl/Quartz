@@ -10,6 +10,7 @@ using Quartz.XP.Models;
 using Accord.Controls;
 using Telerik.WinControls.UI;
 using Quartz.XP.Controls.Elements;
+using LiteDB;
 
 namespace Quartz.XP.Controls
 {
@@ -18,6 +19,12 @@ namespace Quartz.XP.Controls
         public Audition()
         {
             InitializeComponent();
+            WireUp();
+        }
+
+        private void WireUp()
+        {
+            this.PuzzleBinnedChanged += this.PuzzlePropertyChanged;
         }
 
         public BindingSource BindingSourceBundle
@@ -34,6 +41,8 @@ namespace Quartz.XP.Controls
 
         public event EventHandler<BundleSwitchEventArgs> BundleSwitch;
         public event EventHandler<SelectPuzzleEventArgs> SelectPuzzle;
+        public event EventHandler<PuzzlePropertyChangedEventArgs> PuzzleBinnedChanged;
+
         private Bundle idol;
         public Bundle Idol
         {
@@ -77,7 +86,16 @@ namespace Quartz.XP.Controls
                 handler(this, e);
             }
         }
-          
+
+        protected virtual void OnPuzzleBinnedChanged(PuzzlePropertyChangedEventArgs e)
+        {
+            EventHandler<PuzzlePropertyChangedEventArgs> handler = PuzzleBinnedChanged;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+        
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
             ComboBox combo=(ComboBox)sender;
@@ -88,6 +106,15 @@ namespace Quartz.XP.Controls
                     BundleSwitchEventArgs bse = new BundleSwitchEventArgs((int)combo.SelectedValue);
                     OnBundleSwitch(bse);
                 }
+            }
+        }
+
+        protected virtual void OnPuzzlePropertyChanged(PuzzlePropertyChangedEventArgs e)
+        {
+            EventHandler<PuzzlePropertyChangedEventArgs> handler = PuzzlePropertyChanged;
+            if (handler != null)
+            {
+                handler(this, e);
             }
         }
 
@@ -146,6 +173,7 @@ namespace Quartz.XP.Controls
                 }
                 this.binGrid.DataSource = null;
                 this.binGrid.DataSource = new ArrayDataView(idol.Binned());
+                this.OnPuzzleBinnedChanged(new PuzzlePropertyChangedEventArgs(puzzle));
             }
         }
 
@@ -160,6 +188,21 @@ namespace Quartz.XP.Controls
                 bundles[index] = b;
             }
             this.BindingSourceBundle.ResetBindings(false);
+        }
+
+        public void PuzzlePropertyChanged(object sender, PuzzlePropertyChangedEventArgs e)
+        {
+            Puzzle p = e.Puzzle;
+            using (var db = new LiteDatabase(@".\Data\Quartz.db"))
+            {
+                var col = db.GetCollection<Puzzle>("puzzle");
+                var puzzle = col.FindById(p.id);
+                puzzle.Difficulty = p.Difficulty;
+                puzzle.Starred = p.Starred;
+                puzzle.Binned = p.Binned;
+                col.Update(puzzle);
+            }
+            
         }
 
     }

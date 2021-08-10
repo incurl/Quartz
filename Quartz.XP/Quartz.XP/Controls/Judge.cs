@@ -16,6 +16,13 @@ namespace Quartz.XP.Controls
         public Judge()
         {
             InitializeComponent();
+            WireUp();
+        }
+
+        private void WireUp()
+        {
+            this.scale1.PuzzleDifficultyChanged += this.PuzzleDifficultyChanged;
+            this.scale1.Enabled = false;
         }
 
         private Bundle idol;
@@ -32,9 +39,25 @@ namespace Quartz.XP.Controls
             }
         }
 
+        private Puzzle puzzle;
+        public Puzzle Puzzle
+        {
+            get
+            {
+                return puzzle;
+            }
+            set
+            {
+                puzzle = value;
+                this.scale1.Enabled = true;
+                this.scale1.Level = puzzle.Difficulty;
+            }
+        }
+
         public event EventHandler<EventArgs> RevealQrid;
         public event EventHandler<EventArgs> ResetQrid;
         public event EventHandler<BundleChangedEventArgs> BundlePropertyChanged;
+        public event EventHandler<PuzzlePropertyChangedEventArgs> PuzzlePropertyChanged;
 
         protected virtual void OnRevealQrid(EventArgs e)
         {
@@ -63,6 +86,15 @@ namespace Quartz.XP.Controls
             }
         }
 
+        protected virtual void OnPuzzlePropertyChanged(PuzzlePropertyChangedEventArgs e)
+        {
+            EventHandler<PuzzlePropertyChangedEventArgs> handler = PuzzlePropertyChanged;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
         private void buttonReset_Click(object sender, EventArgs e)
         {
             OnResetQrid(e);
@@ -85,6 +117,22 @@ namespace Quartz.XP.Controls
             OnBundleProperyChanged(new BundleChangedEventArgs(this.Idol));
         }
 
+        public void Select_Puzzle(object sender, SelectPuzzleEventArgs e)
+        {
+            this.Puzzle = e.Puzzle;
+        }
+
+        public void PuzzleDifficultyChanged(object sender, ScaleChangedEventArgs e)
+        {
+            this.Puzzle.Difficulty = e.Level;
+            OnPuzzlePropertyChanged(new PuzzlePropertyChangedEventArgs(this.Puzzle));
+        }
+
+        private void radRating1_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 
     public class BundleChangedEventArgs : EventArgs
@@ -95,5 +143,15 @@ namespace Quartz.XP.Controls
         }
         public Bundle Bundle { get; set; }
     }
+
+    public class PuzzlePropertyChangedEventArgs : EventArgs
+    {
+        public PuzzlePropertyChangedEventArgs(Puzzle puzzle)
+        {
+            Puzzle = puzzle;
+        }
+        public Puzzle Puzzle { get; set; }
+    }
+
 
 }
