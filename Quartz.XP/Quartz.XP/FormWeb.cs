@@ -21,6 +21,8 @@ namespace Quartz.XP
             InitializeComponent();
         }
 
+        public event EventHandler<BundleLoadedEventArgs> BundleLoaded;
+
         private void buttonLoad_Click(object sender, EventArgs e)
         {
             try 
@@ -39,6 +41,7 @@ namespace Quartz.XP
                 response = client.Get(request);
                 puzzles = JsonConvert.DeserializeObject<List<Puzzle>>(response.Content);
 
+                radProgressBar1.Value1 = 0;
                 using (var db = new LiteDatabase(@".\Data\Quartz.db"))
                 {
                     var colB = db.GetCollection<Bundle>("bundle");
@@ -48,17 +51,44 @@ namespace Quartz.XP
                     foreach (Puzzle p in puzzles)
                     {
                         colP.Insert(p);
+                        radProgressBar1.Value1++;
                     }
                     colP.EnsureIndex<int>(x => x.id);
                     colP.EnsureIndex<bool>(x => x.Solved);
                     colP.EnsureIndex<bool>(x => x.Starred);
                     colP.EnsureIndex<bool>(x => x.Binned);
                 }
+                OnBundleLoaded(new BundleLoadedEventArgs(bundle));
             }
             catch  (FormatException x)
             {
                 Console.WriteLine(x.Message);
             }
         }
+
+        protected virtual void OnBundleLoaded(BundleLoadedEventArgs e)
+        {
+            EventHandler<BundleLoadedEventArgs> handler = BundleLoaded;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        private void FormWeb_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.BundleLoaded = null;
+        }
+
     }
+
+    public class BundleLoadedEventArgs : EventArgs
+    {
+        public BundleLoadedEventArgs(Bundle bundle)
+        {
+            Bundle = bundle;
+        }
+        public Bundle Bundle { get; set; }
+    }
+
 }

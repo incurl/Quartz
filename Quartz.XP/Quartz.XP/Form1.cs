@@ -228,15 +228,23 @@ namespace Quartz.XP
         {
             using (var db = new LiteDatabase(@".\Data\Quartz.db"))
             {
-                var col = db.GetCollection<Bundle>("bundle");
-                col.Delete(Query.All());
+                var colB = db.GetCollection<Bundle>("bundle");
+                colB.Delete(Query.All());
+                var colP = db.GetCollection<Puzzle>("puzzle");
+                colP.Delete(Query.All());
             }
         }
 
         private void radMenuItemWeb_Click(object sender, EventArgs e)
         {
             FormWeb frm = new FormWeb();
+            frm.BundleLoaded += this.bundle_loaded;
             frm.ShowDialog();
+        }
+
+        private void bundle_loaded(object sender, BundleLoadedEventArgs e)
+        {
+            Load_Data();
         }
 
         private void audition_bundleSwitch(object sender, BundleSwitchEventArgs e)
@@ -299,7 +307,7 @@ namespace Quartz.XP
         private void radMenuItemxVerse_Click(object sender, EventArgs e)
         {
             FormxVerse frm = new FormxVerse();
-            frm.ShowDialog();
+             frm.ShowDialog();
         }
 
     }

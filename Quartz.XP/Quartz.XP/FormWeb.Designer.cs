@@ -65,6 +65,7 @@
             // 
             this.radProgressBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.radProgressBar1.Location = new System.Drawing.Point(0, 81);
+            this.radProgressBar1.Maximum = 121;
             this.radProgressBar1.Name = "radProgressBar1";
             this.radProgressBar1.Size = new System.Drawing.Size(409, 24);
             this.radProgressBar1.TabIndex = 3;
@@ -80,6 +81,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "FormWeb";
             this.Text = "Load Bundle & Puzzles from Web";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormWeb_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.radProgressBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
