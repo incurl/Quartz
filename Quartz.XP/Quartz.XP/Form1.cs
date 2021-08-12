@@ -131,23 +131,6 @@ namespace Quartz.XP
         private List<Bundle> bundles;
         private List<Puzzle> puzzles;
 
-        private void radMenuItem2_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    var sr = new StreamReader(openFileDialog1.FileName);
-                    var json = sr.ReadToEnd();
-                    bundle = JsonConvert.DeserializeObject <List<Bundle>>(json).First<Bundle>();
-                }
-                catch (SecurityException ex)
-                {
-                    //MessageBox.Show($"Security error.\n\nError message: {ex.Message}\n\n" +$"Details:\n\n{ex.StackTrace}");
-                }
-            }
-        }
-
         private void importBundleJson()
         {
             using (var db = new LiteDatabase(@".\Data\Quartz.db"))
@@ -250,22 +233,10 @@ namespace Quartz.XP
             }
         }
 
-        private void radMenuItem3_Click(object sender, EventArgs e)
+        private void radMenuItemWeb_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    var sr = new StreamReader(openFileDialog1.FileName);
-                    var json = sr.ReadToEnd();
-                    puzzles = JsonConvert.DeserializeObject<List<Puzzle>>(json);
-
-                }
-                catch (SecurityException ex)
-                {
-                    //MessageBox.Show($"Security error.\n\nError message: {ex.Message}\n\n" +$"Details:\n\n{ex.StackTrace}");
-                }
-            }
+            FormWeb frm = new FormWeb();
+            frm.ShowDialog();
         }
 
         private void audition_bundleSwitch(object sender, BundleSwitchEventArgs e)
@@ -287,6 +258,48 @@ namespace Quartz.XP
                 this.judge.Idol = bundle;
                 this.audition.Idol = bundle;
             }
+        }
+
+        private void radMenuItemFileBundle_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    var sr = new StreamReader(openFileDialog1.FileName);
+                    var json = sr.ReadToEnd();
+                    bundle = JsonConvert.DeserializeObject<List<Bundle>>(json).First<Bundle>();
+                }
+                catch (SecurityException ex)
+                {
+                    //MessageBox.Show($"Security error.\n\nError message: {ex.Message}\n\n" +$"Details:\n\n{ex.StackTrace}");
+                }
+            }
+        }
+
+        private void radMenuItemFilePuzzles_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    var sr = new StreamReader(openFileDialog1.FileName);
+                    var json = sr.ReadToEnd();
+                    puzzles = JsonConvert.DeserializeObject<List<Puzzle>>(json);
+
+                }
+                catch (SecurityException ex)
+                {
+                    //MessageBox.Show($"Security error.\n\nError message: {ex.Message}\n\n" +$"Details:\n\n{ex.StackTrace}");
+                }
+            }
+
+        }
+
+        private void radMenuItemxVerse_Click(object sender, EventArgs e)
+        {
+            FormxVerse frm = new FormxVerse();
+            frm.ShowDialog();
         }
 
     }

@@ -11,7 +11,6 @@ using Accord.Controls;
 using Telerik.WinControls.UI;
 using Quartz.XP.Controls.Elements;
 using LiteDB;
-using System.Drawing;
 
 namespace Quartz.XP.Controls
 {

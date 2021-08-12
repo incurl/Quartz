@@ -53,14 +53,15 @@ namespace Quartz.XP.Controls
             set
             {
                 puzzle = value;
-                //this.scale1.Enabled = false;
-                this.scale1.Level = puzzle.Difficulty;
-                this.scale1.Enabled = true;
-                //this.radRating1.Enabled = false;
-                this.radRating1.Value = puzzle.Starred ? 100 : 0;
-                this.radRating1.Enabled = true;
-                this.buttonReveal.Enabled = true;
-                this.buttonReset.Enabled = true;
+                if (puzzle != null)
+                {
+                    this.scale1.Level = puzzle.Difficulty;
+                    this.scale1.Enabled = true;
+                    this.radRating1.Value = puzzle.Starred ? 100 : 0;
+                    this.radRating1.Enabled = true;
+                    this.buttonReveal.Enabled = true;
+                    this.buttonReset.Enabled = true;
+                }
             } 
         }
 
